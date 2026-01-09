@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LUMI - Tài chính chữa lành</title>
+    <meta name="description" content="LUMI - Ứng dụng quản lý chi tiêu thấu cảm, kết hợp AI và Game hóa.">
+    <meta name="theme-color" content="#8B5CF6">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        body { 
+            font-family: 'Baloo 2', cursive; 
+            scroll-behavior: smooth;
+        }
+        /* Gradient chủ đạo: Tím mộng mơ sang Hồng pastel */
+        .lumi-bg { 
+            background: linear-gradient(135deg, #A0E9F0 0%, #CBA4FF 100%);
+        }
+        .text-lumi {
+            color: #8B5CF6;
+        }
+        /* Hiệu ứng nổi bọt */
+        .blob {
+            position: absolute;
+            filter: blur(40px);
+            z-index: 0;
+            opacity: 0.4;
+        }
+    </style>
+</head>
+<body class="bg-purple-50 text-gray-800 selection:bg-pink-200 selection:text-purple-900">
+
+    <header class="lumi-bg text-white pt-24 pb-32 relative overflow-hidden rounded-b-[60px] shadow-2xl">
+        
+        <div class="blob bg-white w-64 h-64 rounded-full top-0 left-0 -translate-x-1/2 -translate-y-1/2"></div>
+        <div class="blob bg-yellow-300 w-48 h-48 rounded-full bottom-0 right-0 translate-x-1/3 translate-y-1/3"></div>
+
+        <div class="container mx-auto px-6 text-center relative z-10">
+            <div class="mb-8 inline-block animate-[bounce_3s_infinite]">
+                <div class="w-24 h-24 bg-white/20 backdrop-blur-md rounded-3xl flex items-center justify-center border border-white/30 shadow-lg">
+                    <i class="fa-solid fa-wallet text-5xl text-yellow-300 drop-shadow-md"></i>
+                </div>
+            </div>
+            
+            <h1 class="text-6xl md:text-8xl font-extrabold mb-4 tracking-tight drop-shadow-sm">LUMI</h1>
+            <p class="text-2xl md:text-3xl font-bold opacity-95 mb-6 text-yellow-100">Không áp lực - Chỉ có sẻ chia ✨</p>
+            
+            <p class="max-w-2xl mx-auto text-lg md:text-xl mb-12 opacity-90 leading-relaxed font-medium">
+                Quản lý tiền nong không cần phải căng thẳng. <br>
+                LUMI ở đây để lắng nghe, thấu hiểu và biến việc tiết kiệm thành những <b>Nhiệm vụ (Quest)</b> thú vị mỗi ngày.
+            </p>
+
+            <div class="flex flex-col sm:flex-row justify-center gap-5">
+                <a href="#" class="group bg-black/90 hover:bg-black text-white py-3 px-8 rounded-full transition-all transform hover:scale-105 shadow-xl flex items-center justify-center gap-4 border border-white/10">
+                    <i class="fa-brands fa-google-play text-3xl group-hover:text-green-400 transition-colors"></i>
+                    <div class="text-left">
+                        <p class="text-[10px] uppercase font-bold tracking-wider text-gray-400">Tải ngay trên</p>
+                        <p class="text-xl font-bold leading-none">Google Play</p>
+                    </div>
+                </a>
+                
+                <a href="#" class="group bg-white hover:bg-gray-50 text-purple-600 py-3 px-8 rounded-full transition-all transform hover:scale-105 shadow-xl flex items-center justify-center gap-3">
+                    <i class="fa-solid fa-cloud-arrow-down text-2xl group-hover:translate-y-1 transition-transform"></i>
+                    <span class="text-lg font-bold">Tải file APK</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <section class="py-24 container mx-auto px-6">
+        <div class="text-center mb-16">
+            <span class="bg-purple-100 text-purple-600 px-4 py-1 rounded-full text-sm font-bold uppercase tracking-wide">Tính năng nổi bật</span>
+            <h2 class="text-4xl md:text-5xl font-extrabold mt-4 text-purple-900">Tài chính "Chữa Lành"</h2>
+            <p class="text-gray-500 mt-4 text-lg max-w-2xl mx-auto">Quên đi những bảng tính khô khan. LUMI mang đến trải nghiệm đầy cảm xúc.</p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="bg-white p-8 rounded-[40px] shadow-lg hover:shadow-2xl transition-all hover:-translate-y-2 border border-purple-50">
+                <div class="w-16 h-16 bg-pink-100 text-pink-500 rounded-3xl flex items-center justify-center mb-6 text-3xl shadow-sm">
+                    <i class="fa-solid fa-face-smile-beam"></i>
+                </div>
+                <h3 class="text-2xl font-bold mb-3 text-gray-800">AI Thấu Cảm</h3>
+                <p class="text-gray-500 leading-relaxed">
+                    Lỡ tay tiêu hoang? Đừng lo, LUMI không trách mắng đâu. Chatbot AI sẽ lắng nghe bạn tâm sự, an ủi và nhẹ nhàng cùng bạn tìm cách cân bằng lại vào ngày mai.
+                </p>
+            </div>
+
+            <div class="bg-white p-8 rounded-[40px] shadow-lg hover:shadow-2xl transition-all hover:-translate-y-2 border border-purple-50">
+                <div class="w-16 h-16 bg-yellow-100 text-yellow-600 rounded-3xl flex items-center justify-center mb-6 text-3xl shadow-sm">
+                    <i class="fa-solid fa-dungeon"></i>
+                </div>
+                <h3 class="text-2xl font-bold mb-3 text-gray-800">Săn Quest Mỗi Ngày</h3>
+                <p class="text-gray-500 leading-relaxed">
+                    AI tự động tạo ra các <b>Nhiệm vụ (Quest)</b> độc lạ dựa trên thói quen của bạn. Ví dụ: "Thử thách 1 ngày không trà sữa". Hoàn thành để nhận Huy hiệu Limited!
+                </p>
+            </div>
+
+            <div class="bg-white p-8 rounded-[40px] shadow-lg hover:shadow-2xl transition-all hover:-translate-y-2 border border-purple-50">
+                <div class="w-16 h-16 bg-blue-100 text-blue-600 rounded-3xl flex items-center justify-center mb-6 text-3xl shadow-sm">
+                    <i class="fa-solid fa-users-viewfinder"></i>
+                </div>
+                <h3 class="text-2xl font-bold mb-3 text-gray-800">Kết Bạn & Chill</h3>
+                <p class="text-gray-500 leading-relaxed">
+                    Tài chính không cần phải cô đơn. Quét mã QR danh thiếp, kết bạn bốn phương và cùng nhau đua Top "Người tiêu dùng thông thái".
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-purple-900 text-white py-20 rounded-[50px] mx-4 md:mx-10 relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]"></div>
+        <div class="container mx-auto px-6 text-center relative z-10">
+            <i class="fa-solid fa-quote-left text-4xl text-purple-400 mb-6"></i>
+            <h3 class="text-2xl md:text-4xl font-bold leading-normal max-w-4xl mx-auto">
+                "LUMI không chỉ là app quản lý tiền. <br>Đó là người bạn nhắc nhở tôi yêu thương bản thân mình hơn qua cách chi tiêu."
+            </h3>
+            <p class="mt-8 font-semibold text-purple-300">- Một LUMI User hạnh phúc -</p>
+        </div>
+    </section>
+
+    <section id="privacy" class="py-20 bg-white mt-10">
+        <div class="container mx-auto px-6 max-w-3xl">
+            <div class="text-center mb-10">
+                <h2 class="text-3xl font-bold text-gray-800">Chính sách quyền riêng tư</h2>
+                <div class="w-20 h-1 bg-purple-500 mx-auto mt-4 rounded-full"></div>
+            </div>
+            
+            <div class="prose prose-purple mx-auto text-gray-600 bg-gray-50 p-8 rounded-3xl border border-gray-100">
+                <p class="text-sm text-gray-400 mb-4 italic">Cập nhật lần cuối: 10/01/2026</p>
+                
+                <p class="mb-4">Chào mừng bạn đến với <strong>LUMI</strong>. Sự riêng tư của bạn là ưu tiên hàng đầu của chúng tôi. Chính sách này giải thích cách chúng tôi xử lý dữ liệu của bạn.</p>
+
+                <h4 class="text-lg font-bold text-gray-800 mt-6 mb-2">1. Dữ liệu chúng tôi thu thập</h4>
+                <ul class="list-disc pl-5 space-y-2 mb-4">
+                    <li><strong>Thông tin định danh:</strong> Tên hiển thị, Email (thông qua Google/Firebase Auth) để tạo hồ sơ cá nhân.</li>
+                    <li><strong>Dữ liệu tài chính:</strong> Các giao dịch thu chi bạn nhập. Dữ liệu này được lưu trữ cục bộ và đồng bộ hóa bảo mật.</li>
+                    <li><strong>Quyền thiết bị:</strong>
+                        <ul class="list-circle pl-5 mt-1 text-sm text-gray-500">
+                            <li> Camera: Để quét mã QR kết bạn và chụp ảnh hóa đơn.</li>
+                            <li> Thư viện ảnh: Để đổi avatar hoặc gửi ảnh trong chat.</li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <h4 class="text-lg font-bold text-gray-800 mt-6 mb-2">2. Cam kết bảo mật</h4>
+                <p class="mb-4">Chúng tôi sử dụng dữ liệu chỉ để cung cấp tính năng App (Chat AI, Quest, Đồng bộ). Chúng tôi <strong>tuyệt đối không bán</strong> dữ liệu của bạn cho bên thứ ba quảng cáo.</p>
+
+                <h4 class="text-lg font-bold text-gray-800 mt-6 mb-2">3. Quyền của bạn</h4>
+                <p class="mb-4">Bạn có thể yêu cầu xóa toàn bộ tài khoản và dữ liệu lịch sử bất cứ lúc nào trong phần <em>Cài đặt > Tài khoản</em>.</p>
+
+                <h4 class="text-lg font-bold text-gray-800 mt-6 mb-2">4. Liên hệ</h4>
+                <p>Mọi thắc mắc vui lòng gửi về: <a href="mailto:support@lumi.app" class="text-purple-600 font-bold hover:underline">vo688089@gmail.com</a></p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-gray-50 py-12 text-center border-t border-gray-200">
+        <div class="mb-6 flex justify-center space-x-6">
+            <a href="#" class="w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-md text-gray-400 hover:text-blue-600 hover:scale-110 transition"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#" class="w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-md text-gray-400 hover:text-black hover:scale-110 transition"><i class="fa-brands fa-tiktok"></i></a>
+            <a href="#" class="w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-md text-gray-400 hover:text-pink-600 hover:scale-110 transition"><i class="fa-brands fa-instagram"></i></a>
+        </div>
+        <p class="text-gray-400 font-medium text-sm">© 2026 LUMI App. Built with ❤️ & ☕.</p>
+    </footer>
+
+</body>
+</html>
