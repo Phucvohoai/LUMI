@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chính sách riêng tư – LUMI App</title>
+  <meta name="description" content="Chính sách bảo mật và an toàn dữ liệu của ứng dụng quản lý tài chính LUMI." />
+  <meta name="robots" content="index, follow" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+  <style>
+    /* ══════════════════════════════════════════
+       DESIGN TOKENS (Đồng bộ với index.html)
+    ══════════════════════════════════════════ */
+    :root {
+      --sky-50:  #F0F9FF;
+      --sky-100: #E0F4FF;
+      --sky-200: #BAE6FD;
+      --sky-300: #7DD3FC;
+      --sky-400: #38BDF8;
+      --sky-500: #0EA5E9;
+      --sky-600: #0284C7;
+      --navy:    #0F2942;
+      --ink:     #1E3A5F;
+      --muted:   #64748B;
+      --white:   #FFFFFF;
+      --r-xl:    28px;
+      --r-2xl:   40px;
+      --shadow:  0 4px 24px rgba(14,165,233,.12);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--sky-50);
+      color: var(--ink);
+      -webkit-font-smoothing: antialiased;
+      padding-top: 80px; /* Tránh bị đè bởi nav fixed */
+    }
+
+    h1, h2, h3, .brand-logo {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    /* ══════════════════════════════════════════
+       NAV BAR
+    ══════════════════════════════════════════ */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 14px 40px;
+      background: rgba(240,249,255,.82);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(186,230,253,.5);
+    }
+    .nav-logo {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1.5rem; font-weight: 900;
+      color: var(--sky-600);
+      display: flex; align-items: center; gap: 8px;
+      text-decoration: none;
+    }
+    .nav-logo span { color: var(--ink); }
+    .btn-back {
+      color: var(--sky-600); text-decoration: none;
+      font-size: .9rem; font-weight: 700;
+      display: inline-flex; align-items: center; gap: 6px;
+      transition: color .2s;
+    }
+    .btn-back:hover { color: var(--sky-700); }
+
+    /* ══════════════════════════════════════════
+       MAIN CONTENT LAYOUT
+    ══════════════════════════════════════════ */
+    .policy-container {
+      max-width: 880px;
+      margin: 40px auto 80px;
+      padding: 0 24px;
+    }
+
+    .policy-header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    .policy-header h1 {
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      font-weight: 900;
+      color: var(--navy);
+      margin-bottom: 12px;
+    }
+    .policy-meta {
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    .policy-card {
+      background: var(--white);
+      border-radius: var(--r-xl);
+      padding: 48px;
+      border: 1px solid rgba(186,230,253,.4);
+      box-shadow: var(--shadow);
+    }
+
+    /* Typography inside content */
+    .policy-card p {
+      font-size: 1rem;
+      line-height: 1.7;
+      color: var(--ink);
+      margin-bottom: 20px;
+      text-align: justify;
+    }
+    .policy-card h2 {
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: var(--navy);
+      margin-top: 36px;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .policy-card h2::before {
+      content: '';
+      display: inline-block;
+      width: 4px; height: 20px;
+      background: var(--sky-400);
+      border-radius: 100px;
+    }
+    .policy-card h3 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--sky-700);
+      margin-top: 24px;
+      margin-bottom: 10px;
+    }
+    
+    /* Lists */
+    .policy-card ul, .policy-card ol {
+      margin-bottom: 24px;
+      padding-left: 20px;
+    }
+    .policy-card li {
+      font-size: 0.95rem;
+      line-height: 1.65;
+      color: var(--ink);
+      margin-bottom: 8px;
+    }
+
+    /* Highlight Callout Box */
+    .callout-box {
+      background: var(--sky-50);
+      border-left: 4px solid var(--sky-500);
+      padding: 20px;
+      border-radius: 0 16px 16px 0;
+      margin-bottom: 28px;
+    }
+    .callout-box p {
+      margin-bottom: 0 !important;
+      font-style: italic;
+      color: var(--navy) !important;
+    }
+
+    /* Links inside text */
+    .policy-card a {
+      color: var(--sky-500);
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .policy-card a:hover {
+      text-decoration: underline;
+    }
+
+    /* Contact Block */
+    .contact-block {
+      background: #FAF8F5;
+      border: 1px solid rgba(0,0,0,.05);
+      border-radius: 16px;
+      padding: 24px;
+      margin-top: 40px;
+    }
+    .contact-block h4 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1.05rem;
+      color: var(--navy);
+      margin-bottom: 12px;
+    }
+    .contact-block p {
+      font-size: 0.9rem !important;
+      margin-bottom: 0 !important;
+      line-height: 1.6 !important;
+    }
+
+    /* ══════════════════════════════════════════
+       FOOTER
+    ══════════════════════════════════════════ */
+    footer {
+      background: var(--white);
+      border-top: 1px solid var(--sky-100);
+      padding: 32px 40px;
+      text-align: center;
+      font-size: .85rem;
+      color: var(--muted);
+    }
+
+    /* Responsive */
+    @media (max-width: 640px) {
+      nav { padding: 12px 20px; }
+      .policy-container { margin: 24px auto 40px; padding: 0 16px; }
+      .policy-card { padding: 24px; border-radius: 20px; }
+      .policy-card h2 { font-size: 1.2rem; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav>
+    <a href="/" class="nav-logo">
+      <i class="fa-solid fa-wallet" style="color: var(--sky-400)"></i>
+      LUMI
+    </a>
+    <a href="/" class="btn-back">
+      <i class="fa-solid fa-arrow-left"></i> Quay lại Trang chủ
+    </a>
+  </nav>
+
+  <main class="policy-container">
+    <div class="policy-header">
+      <h1>Chính sách Riêng tư</h1>
+      <p class="policy-meta">Cập nhật lần cuối: Tháng 06, 2026</p>
+    </div>
+
+    <article class="policy-card">
+      <p>Chào mừng bạn đến với <strong>LUMI</strong>. Chúng tôi cam kết tuyệt đối bảo vệ quyền riêng tư cá nhân và an toàn dữ liệu tài chính của bạn. Chính sách riêng tư này làm rõ cách thức LUMI thu thập, bảo mật và sử dụng thông tin của bạn khi bạn tham gia trải nghiệm ứng dụng, đặc biệt là trong giai đoạn thử nghiệm đóng (Closed Test) trên Google Play Store.</p>
+
+      <div class="callout-box">
+        <p><strong>Tuyên bố cốt lõi:</strong> LUMI vận hành theo nguyên tắc tôn trọng quyền riêng tư. Chúng tôi <strong>KHÔNG</strong> bán, trao đổi, thương mại hóa hay chia sẻ dữ liệu chi tiêu cá nhân của bạn cho bất kỳ công ty quảng cáo hoặc bên thứ ba nào.</p>
+      </div>
+
+      <h2>1. Dữ liệu chúng tôi thu thập</h2>
+      <p>Để đảm bảo các tính năng thông minh của trợ lý AI và trải nghiệm kết nối cộng đồng vận hành mượt mà, LUMI ghi nhận một số thông tin sau:</p>
+      <ul>
+        <li><strong>Thông tin tài khoản Google:</strong> Địa chỉ email, tên hiển thị và ảnh đại diện khi bạn thực hiện đăng nhập (Google Sign-In). Trong giai đoạn Closed Test, email này cần khớp với email bạn dùng để tham gia nhóm kiểm thử.</li>
+        <li><strong>Nhật ký tài chính:</strong> Các thông tin số tiền, hạng mục thu chi (ăn uống, mua sắm...), sổ nợ, hạn mức ngân sách do bạn chủ động nhập vào hệ thống hoặc tạo thông qua chat AI.</li>
+        <li><strong>Dữ liệu Máy ảnh & Hình ảnh (OCR):</strong> Khi bạn sử dụng tính năng quét hóa đơn, ứng dụng sẽ xin quyền truy cập Camera/Thư viện để đọc chữ trên hóa đơn và tự động chuyển thành số liệu. Hình ảnh chỉ được xử lý tạm thời cho mục đích trích xuất dữ liệu.</li>
+        <li><strong>Tính năng MXH & Gamification:</strong> Danh sách bạn bè kết nối qua mã QR cá nhân, tâm trạng tài chính (Vibe) bạn chia sẻ, tin nhắn trò chuyện thời gian thực và điểm số xếp hạng uy tín nhận từ việc làm Quest thử thách.</li>
+      </ul>
+
+      <h2>2. Cách chúng tôi sử dụng thông tin</h2>
+      <p>Dữ liệu thu thập chỉ được dùng vào các mục đích nội bộ nhằm cải tiến tính năng ứng dụng:</p>
+      <ul>
+        <li>Tính toán, thống kê biểu đồ dòng tiền và phân tích cơ cấu ngân sách theo quy tắc 50/30/20.</li>
+        <li>Xử lý ngôn ngữ tự nhiên thông qua AI để bạn có thể ghi chép nhanh qua câu lệnh chat "cà phê 45k" mà không cần gõ form.</li>
+        <li>Gợi ý ngẫu nhiên các thông điệp "Tarot tài chính" mỗi sáng dựa trên dữ liệu chi tiêu thực tế để đưa ra lời khuyên vui vẻ, thực tế.</li>
+        <li>Xác minh tài khoản tester hợp lệ để tự động cấp phát <strong>Huy hiệu Partner (Tích xanh)</strong> độc quyền cho hồ sơ cá nhân của bạn.</li>
+      </ul>
+
+      <h2>3. Lưu trữ và Bảo mật dữ liệu</h2>
+      <p>An toàn thông tin của bạn là ưu tiên cao nhất của LUMI:</p>
+      <ul>
+        <li>Toàn bộ dữ liệu truyền tải giữa điện thoại và máy chủ đám mây đều được mã hóa bằng giao thức bảo mật an toàn <strong>SSL/TLS</strong>.</li>
+        <li>Các thông tin tài chính nhạy cảm được lưu trữ trên hệ thống cơ sở dữ liệu phân quyền nghiêm ngặt, chống các truy cập trái phép bên ngoài.</li>
+      </ul>
+
+      <h2>4. Quyền của bạn đối với dữ liệu</h2>
+      <p>Bạn có toàn quyền kiểm soát dữ liệu cá nhân của mình trực tiếp ngay trong giao diện ứng dụng:</p>
+      <ul>
+        <li>Tùy ý chỉnh sửa, cập nhật hoặc xóa bỏ hoàn toàn bất kỳ giao dịch, ngân sách hay nội dung ghi chú nào trong lịch sử chi tiêu.</li>
+        <li><strong>Quyền xóa tài khoản vĩnh viễn:</strong> Bạn có thể chọn Hủy/Xóa tài khoản bất kỳ lúc nào trong phần Cài đặt. Khi xác nhận, toàn bộ thông tin hồ sơ, email, lịch sử ví và dữ liệu chat liên quan sẽ bị xóa vĩnh viễn khỏi hệ thống máy chủ trong vòng 30 ngày làm việc và không thể khôi phục.</li>
+      </ul>
+
+      <h2>5. Điều khoản dành riêng cho Closed Test</h2>
+      <p>Khi tham gia đội ngũ tester sớm của LUMI, bạn đồng ý sử dụng tài khoản Google đã đăng ký trong <a href="https://groups.google.com/g/lumiapp-testers" target="_blank">Google Group Testers</a>. Hệ thống sẽ dựa vào đây để xác minh tự động và gắn tích xanh Partner cho bạn. Do đang trong giai đoạn phát triển và tối ưu cơ sở dữ liệu, chúng tôi khuyến nghị người dùng không lưu trữ các thông tin tài chính mang tính chất tuyệt mật của cá nhân trên phiên bản này.</p>
+
+      <div class="contact-block">
+        <h4>7. Thông tin liên hệ hỗ trợ</h4>
+        <p>Nếu bạn có bất kỳ câu hỏi, góp ý hay yêu cầu hỗ trợ kỹ thuật nào liên quan đến quyền dữ liệu cá nhân, vui lòng liên hệ trực tiếp:</p>
+        <p style="margin-top: 8px;">
+          • <strong>Nhà phát triển:</strong> Võ Hoài Phúc<br/>
+          • <strong>Email:</strong> <a href="mailto:phucvohoai.dev@gmail.com">phucvohoai.dev@gmail.com</a><br/>
+          • <strong>Google Group:</strong> <a href="https://groups.google.com/g/lumiapp-testers" target="_blank">lumiapp-testers</a>
+        </p>
+      </div>
+    </article>
+  </main>
+
+  <footer>
+    <p>© 2026 LUMI App. Built with ❤️ tại Việt Nam. Dữ liệu của bạn thuộc về bạn.</p>
+  </footer>
+
+</body>
+</html>
