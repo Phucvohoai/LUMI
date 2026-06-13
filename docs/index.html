@@ -1,210 +1,1224 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LUMI - Tiền đi đâu thế ?</title>
-    <meta name="description" content="LUMI - Ứng dụng quản lý chi tiêu thấu cảm, kết hợp AI và Game hóa.">
-    <meta name="theme-color" content="#8B5CF6">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-   
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <style>
-        body {
-            font-family: 'Baloo 2', cursive;
-            scroll-behavior: smooth;
-        }
-        .lumi-bg {
-            background: linear-gradient(135deg, #A0E9F0 0%, #CBA4FF 100%);
-        }
-        .blob {
-            position: absolute;
-            filter: blur(40px);
-            z-index: 0;
-            opacity: 0.4;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- ═══ PRIMARY SEO ═══ -->
+  <title>LUMI – Quản lý tài chính thấu cảm, có AI đồng hành</title>
+  <meta name="description" content="LUMI giúp bạn theo dõi thu chi, lập ngân sách, tiết kiệm mục tiêu và nhận lời khuyên từ AI thấu cảm. Gamification + mạng xã hội tài chính dành cho Gen Z Việt Nam." />
+  <meta name="keywords" content="quản lý tài chính, app chi tiêu, tiết kiệm tiền, AI tài chính, LUMI app, ứng dụng quản lý chi tiêu Việt Nam" />
+  <link rel="canonical" href="https://lumi.app/" />
+
+  <!-- ═══ OPEN GRAPH ═══ -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://lumi.app/" />
+  <meta property="og:title" content="LUMI – Quản lý tài chính thấu cảm, có AI đồng hành" />
+  <meta property="og:description" content="Theo dõi chi tiêu, săn Quest, rút Tarot tài chính và nhận lời khuyên từ AI thấu cảm. Tải LUMI miễn phí ngay hôm nay." />
+  <meta property="og:image" content="https://lumi.app/og-cover.png" />
+  <meta property="og:locale" content="vi_VN" />
+  <meta property="og:site_name" content="LUMI App" />
+
+  <!-- ═══ TWITTER CARD ═══ -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="LUMI – Quản lý tài chính thấu cảm, có AI đồng hành" />
+  <meta name="twitter:description" content="App quản lý chi tiêu Gen Z: AI thấu cảm, Quest tiết kiệm, Tarot tài chính. Miễn phí trên Android." />
+  <meta name="twitter:image" content="https://lumi.app/og-cover.png" />
+
+  <!-- ═══ STRUCTURED DATA ═══ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "LUMI",
+    "operatingSystem": "Android",
+    "applicationCategory": "FinanceApplication",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "VND" },
+    "description": "Ứng dụng quản lý tài chính cá nhân thông minh kết hợp AI, Gamification và mạng xã hội cho người dùng Việt Nam.",
+    "url": "https://lumi.app",
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.8",
+      "reviewCount": "1200"
+    }
+  }
+  </script>
+
+  <meta name="theme-color" content="#BAE6FD" />
+  <meta name="robots" content="index, follow" />
+
+  <!-- ═══ FONTS ═══ -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+  <style>
+    /* ══════════════════════════════════════════
+       DESIGN TOKENS
+    ══════════════════════════════════════════ */
+    :root {
+      --sky-50:  #F0F9FF;
+      --sky-100: #E0F4FF;
+      --sky-200: #BAE6FD;
+      --sky-300: #7DD3FC;
+      --sky-400: #38BDF8;
+      --sky-500: #0EA5E9;
+      --sky-600: #0284C7;
+      --sky-700: #0369A1;
+      --navy:    #0F2942;
+      --ink:     #1E3A5F;
+      --muted:   #64748B;
+      --warm:    #FFF8E7;
+      --pop:     #F0ABFC;
+      --pop2:    #A5F3FC;
+      --green:   #86EFAC;
+      --yellow:  #FDE68A;
+      --white:   #FFFFFF;
+      --r-xl:    28px;
+      --r-2xl:   40px;
+      --r-3xl:   56px;
+      --shadow:  0 4px 24px rgba(14,165,233,.12);
+      --shadow-md: 0 8px 40px rgba(14,165,233,.18);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--sky-50);
+      color: var(--ink);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    h1, h2, h3, h4, .display {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    /* ══════════════════════════════════════════
+       NAV
+    ══════════════════════════════════════════ */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 14px 40px;
+      background: rgba(240,249,255,.82);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(186,230,253,.5);
+    }
+
+    .nav-logo {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1.5rem; font-weight: 900;
+      color: var(--sky-600);
+      display: flex; align-items: center; gap: 8px;
+      text-decoration: none;
+    }
+    .nav-logo span { color: var(--ink); }
+
+    .nav-links { display: flex; gap: 32px; list-style: none; }
+    .nav-links a {
+      text-decoration: none; color: var(--muted);
+      font-size: .9rem; font-weight: 500;
+      transition: color .2s;
+    }
+    .nav-links a:hover { color: var(--sky-500); }
+
+    .nav-cta {
+      background: var(--sky-500); color: #fff;
+      padding: 10px 22px; border-radius: 100px;
+      font-size: .875rem; font-weight: 700;
+      text-decoration: none;
+      transition: background .2s, transform .15s;
+      box-shadow: 0 2px 12px rgba(14,165,233,.3);
+    }
+    .nav-cta:hover { background: var(--sky-600); transform: translateY(-1px); }
+
+    /* ══════════════════════════════════════════
+       HERO
+    ══════════════════════════════════════════ */
+    .hero {
+      min-height: 100vh;
+      display: flex; align-items: center;
+      padding: 120px 40px 80px;
+      position: relative; overflow: hidden;
+      background: linear-gradient(150deg, #E0F7FF 0%, #F0F4FF 50%, #FFF0FB 100%);
+    }
+
+    /* Decorative blobs */
+    .hero::before {
+      content: '';
+      position: absolute; width: 520px; height: 520px;
+      background: radial-gradient(circle, #BAE6FD 0%, transparent 70%);
+      top: -120px; left: -120px; border-radius: 50%;
+      pointer-events: none;
+    }
+    .hero::after {
+      content: '';
+      position: absolute; width: 380px; height: 380px;
+      background: radial-gradient(circle, #F0ABFC 0%, transparent 70%);
+      bottom: -80px; right: -60px; border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      max-width: 1200px; margin: 0 auto;
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 64px; align-items: center;
+      position: relative; z-index: 1; width: 100%;
+    }
+
+    .hero-tag {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: rgba(255,255,255,.7);
+      border: 1px solid var(--sky-200);
+      padding: 6px 14px; border-radius: 100px;
+      font-size: .8rem; font-weight: 600; color: var(--sky-600);
+      margin-bottom: 20px;
+      backdrop-filter: blur(8px);
+    }
+    .hero-tag .dot {
+      width: 7px; height: 7px; border-radius: 50%;
+      background: var(--sky-400);
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: .5; transform: scale(.8); }
+    }
+
+    .hero h1 {
+      font-size: clamp(2.6rem, 5vw, 4.2rem);
+      font-weight: 900; line-height: 1.1;
+      color: var(--navy);
+      margin-bottom: 20px;
+    }
+    .hero h1 .highlight {
+      background: linear-gradient(135deg, var(--sky-400), var(--sky-600));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero h1 .pop-text {
+      background: linear-gradient(135deg, #E879F9, #A855F7);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-desc {
+      font-size: 1.1rem; color: var(--muted); line-height: 1.7;
+      margin-bottom: 36px; max-width: 480px;
+    }
+
+    .hero-btns {
+      display: flex; flex-wrap: wrap; gap: 14px;
+      align-items: center;
+    }
+
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: var(--ink); color: #fff;
+      padding: 14px 28px; border-radius: 100px;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 700; font-size: 1rem;
+      text-decoration: none;
+      transition: transform .2s, box-shadow .2s;
+      box-shadow: 0 4px 20px rgba(15,41,66,.25);
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(15,41,66,.3); }
+
+    .btn-secondary {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: white; color: var(--sky-600);
+      padding: 14px 28px; border-radius: 100px;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 700; font-size: 1rem;
+      text-decoration: none; border: 2px solid var(--sky-200);
+      transition: border-color .2s, transform .2s;
+    }
+    .btn-secondary:hover { border-color: var(--sky-400); transform: translateY(-2px); }
+
+    .hero-stats {
+      display: flex; gap: 28px; margin-top: 40px;
+      padding-top: 28px; border-top: 1px solid rgba(186,230,253,.6);
+    }
+    .hero-stat-item { text-align: left; }
+    .hero-stat-num {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1.6rem; font-weight: 800; color: var(--navy);
+    }
+    .hero-stat-label { font-size: .8rem; color: var(--muted); font-weight: 500; }
+
+    /* ── Hero Visual: Phone Mockup with floating cards ── */
+    .hero-visual {
+      position: relative; display: flex;
+      justify-content: center; align-items: center;
+    }
+
+    .phone-frame {
+      width: 260px;
+      position: relative; z-index: 2;
+      filter: drop-shadow(0 32px 64px rgba(14,165,233,.3)) drop-shadow(0 8px 24px rgba(0,0,0,.12));
+    }
+    .phone-frame img {
+      width: 100%;
+      border-radius: 44px;
+      display: block;
+    }
+
+    /* Floating cards */
+    .float-card {
+      position: absolute;
+      background: white; border-radius: var(--r-xl);
+      padding: 12px 16px;
+      box-shadow: var(--shadow-md);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      z-index: 3;
+    }
+    .float-card.quest {
+      left: -60px; top: 80px;
+      width: 172px;
+      animation: floatY 5s ease-in-out infinite;
+    }
+    .float-card.badge {
+      right: -56px; bottom: 120px;
+      width: 156px;
+      animation: floatY 5s ease-in-out infinite 1.5s;
+    }
+    .float-card.tarot {
+      right: -40px; top: 80px;
+      width: 136px;
+      animation: floatY 5s ease-in-out infinite 3s;
+    }
+    @keyframes floatY {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+    .float-title { font-size: .65rem; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: .05em; margin-bottom: 4px; }
+    .float-body { font-size: .82rem; font-weight: 700; color: var(--navy); }
+    .float-sub { font-size: .7rem; color: var(--muted); margin-top: 2px; }
+    .float-emoji { font-size: 1.4rem; margin-bottom: 4px; display: block; }
+    .progress-wrap { height: 5px; background: var(--sky-100); border-radius: 100px; margin-top: 7px; overflow: hidden; }
+    .progress-fill { height: 100%; background: linear-gradient(90deg, var(--sky-400), var(--pop)); border-radius: 100px; }
+
+    /* ══════════════════════════════════════════
+       SECTION WRAPPER
+    ══════════════════════════════════════════ */
+    .section { padding: 96px 40px; }
+    .section-inner { max-width: 1200px; margin: 0 auto; }
+    .section-tag {
+      display: inline-block; background: var(--sky-100);
+      color: var(--sky-600); padding: 5px 14px; border-radius: 100px;
+      font-size: .78rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: .06em; margin-bottom: 16px;
+    }
+    .section-title {
+      font-size: clamp(1.9rem, 3.5vw, 2.8rem);
+      font-weight: 800; color: var(--navy); line-height: 1.2;
+      margin-bottom: 12px;
+    }
+    .section-sub { font-size: 1.05rem; color: var(--muted); max-width: 520px; line-height: 1.7; }
+
+    /* ══════════════════════════════════════════
+       FEATURE GRID
+    ══════════════════════════════════════════ */
+    #features { background: white; }
+
+    .features-header { text-align: center; margin-bottom: 56px; }
+    .features-header .section-sub { max-width: 540px; margin: 0 auto; }
+
+    .feat-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .feat-card {
+      background: var(--sky-50);
+      border-radius: var(--r-2xl);
+      padding: 32px;
+      transition: transform .25s, box-shadow .25s;
+      border: 1px solid rgba(186,230,253,.4);
+      position: relative; overflow: hidden;
+    }
+    .feat-card::before {
+      content: '';
+      position: absolute; width: 150px; height: 150px;
+      border-radius: 50%;
+      background: radial-gradient(circle, var(--icon-glow, #BAE6FD) 0%, transparent 70%);
+      top: -40px; right: -40px;
+      pointer-events: none;
+    }
+    .feat-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-md); }
+    .feat-card.wide { grid-column: span 2; }
+    .feat-card.tall { background: linear-gradient(145deg, var(--navy) 0%, #1a4a7a 100%); }
+    .feat-card.tall .feat-title { color: white; }
+    .feat-card.tall .feat-desc { color: rgba(255,255,255,.6); }
+
+    .feat-icon {
+      width: 52px; height: 52px; border-radius: 18px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.4rem; margin-bottom: 20px;
+    }
+    .feat-title { font-size: 1.15rem; font-weight: 800; color: var(--navy); margin-bottom: 8px; }
+    .feat-desc { font-size: .9rem; color: var(--muted); line-height: 1.65; }
+    .feat-tag-list { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 16px; }
+    .feat-tag {
+      font-size: .72rem; font-weight: 600; padding: 4px 10px;
+      border-radius: 100px; background: white; color: var(--sky-600);
+      border: 1px solid var(--sky-200);
+    }
+
+    /* ══════════════════════════════════════════
+       HOW IT WORKS
+    ══════════════════════════════════════════ */
+    #how { background: var(--sky-50); }
+    .how-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 28px; margin-top: 56px; position: relative;
+    }
+    .how-grid::before {
+      content: '';
+      position: absolute; top: 36px; left: calc(16.5% + 10px);
+      right: calc(16.5% + 10px);
+      height: 2px;
+      background: linear-gradient(90deg, var(--sky-300), var(--pop));
+      border-radius: 2px;
+      z-index: 0;
+    }
+    .how-step { text-align: center; position: relative; z-index: 1; }
+    .how-num {
+      width: 72px; height: 72px; border-radius: 50%;
+      background: white; border: 3px solid var(--sky-200);
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1.6rem; font-weight: 900; color: var(--sky-500);
+      margin: 0 auto 20px;
+      box-shadow: 0 4px 16px rgba(14,165,233,.15);
+    }
+    .how-title { font-size: 1.1rem; font-weight: 800; color: var(--navy); margin-bottom: 8px; }
+    .how-desc { font-size: .88rem; color: var(--muted); line-height: 1.65; }
+
+    /* ══════════════════════════════════════════
+       AI SECTION
+    ══════════════════════════════════════════ */
+    #ai {
+      background: linear-gradient(135deg, var(--navy) 0%, #0c2d55 100%);
+      margin: 0 24px; border-radius: var(--r-3xl);
+    }
+    #ai .section-tag { background: rgba(125,211,252,.15); color: var(--sky-300); }
+    #ai .section-title { color: white; }
+    #ai .section-sub { color: rgba(255,255,255,.6); max-width: 100%; }
+
+    .ai-inner {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 64px; align-items: center;
+    }
+    .ai-chat {
+      background: rgba(255,255,255,.05);
+      border-radius: var(--r-2xl); padding: 24px;
+      border: 1px solid rgba(125,211,252,.15);
+      display: flex; flex-direction: column; gap: 14px;
+    }
+    .chat-msg {
+      display: flex; gap: 10px; align-items: flex-end;
+    }
+    .chat-msg.user { flex-direction: row-reverse; }
+    .chat-avatar {
+      width: 32px; height: 32px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: .9rem; flex-shrink: 0;
+    }
+    .chat-avatar.ai { background: var(--sky-400); }
+    .chat-avatar.user { background: var(--pop); }
+    .chat-bubble {
+      max-width: 75%; padding: 11px 15px; border-radius: 18px;
+      font-size: .85rem; line-height: 1.55;
+    }
+    .chat-bubble.ai {
+      background: rgba(255,255,255,.08); color: rgba(255,255,255,.85);
+      border-radius: 4px 18px 18px 18px;
+    }
+    .chat-bubble.user {
+      background: var(--sky-500); color: white;
+      border-radius: 18px 18px 4px 18px;
+    }
+    .chat-bubble .amount { color: #FDE68A; font-weight: 700; }
+
+    .ai-features { list-style: none; margin-top: 32px; display: flex; flex-direction: column; gap: 16px; }
+    .ai-feat-item {
+      display: flex; align-items: flex-start; gap: 14px;
+      background: rgba(255,255,255,.05); border-radius: 20px;
+      padding: 16px 20px; border: 1px solid rgba(125,211,252,.1);
+    }
+    .ai-feat-icon {
+      width: 40px; height: 40px; border-radius: 14px;
+      background: rgba(125,211,252,.15);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.1rem; flex-shrink: 0;
+    }
+    .ai-feat-title { font-size: .95rem; font-weight: 700; color: white; margin-bottom: 2px; }
+    .ai-feat-desc { font-size: .82rem; color: rgba(255,255,255,.55); line-height: 1.55; }
+
+    /* ══════════════════════════════════════════
+       GAMIFICATION
+    ══════════════════════════════════════════ */
+    #game { background: white; }
+    .game-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 24px; margin-top: 48px;
+    }
+    .game-card {
+      border-radius: var(--r-2xl); padding: 32px; overflow: hidden; position: relative;
+    }
+    .game-card.quest-card {
+      background: linear-gradient(135deg, #FFF8E7 0%, #FEF3C7 100%);
+      border: 1px solid #FDE68A;
+    }
+    .game-card.badge-card {
+      background: linear-gradient(135deg, #F5F3FF 0%, #EDE9FE 100%);
+      border: 1px solid #DDD6FE;
+    }
+    .game-card.tarot-card {
+      background: linear-gradient(135deg, #F0F9FF 0%, #E0F2FE 100%);
+      border: 1px solid #BAE6FD; grid-column: span 2;
+    }
+    .game-card.mode-card {
+      background: linear-gradient(135deg, #FFF1F2 0%, #FFE4E6 100%);
+      border: 1px solid #FECDD3;
+    }
+    .game-card-icon { font-size: 2.4rem; margin-bottom: 16px; display: block; }
+    .game-card-title { font-size: 1.2rem; font-weight: 800; color: var(--navy); margin-bottom: 8px; }
+    .game-card-desc { font-size: .9rem; color: var(--muted); line-height: 1.65; }
+    .badge-row { display: flex; gap: 8px; margin-top: 14px; flex-wrap: wrap; }
+    .badge-chip {
+      display: inline-flex; align-items: center; gap: 5px;
+      padding: 5px 11px; border-radius: 100px;
+      font-size: .75rem; font-weight: 700;
+      background: white; color: var(--navy);
+      border: 1.5px solid rgba(0,0,0,.08);
+      box-shadow: 0 2px 8px rgba(0,0,0,.05);
+    }
+    .quest-progress { margin-top: 16px; }
+    .quest-row { display: flex; flex-direction: column; gap: 10px; }
+    .quest-item { background: white; border-radius: 14px; padding: 10px 14px; }
+    .quest-item-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; }
+    .quest-item-name { font-size: .82rem; font-weight: 700; color: var(--navy); }
+    .quest-item-pts { font-size: .7rem; font-weight: 700; color: var(--sky-500); }
+    .q-bar-wrap { height: 5px; background: var(--sky-100); border-radius: 100px; overflow: hidden; }
+    .q-bar-fill { height: 100%; border-radius: 100px; background: linear-gradient(90deg, var(--sky-400), var(--sky-300)); }
+    .tarot-grid { display: flex; gap: 14px; margin-top: 16px; }
+    .tarot-card-mini {
+      flex: 1; background: white; border-radius: 16px; padding: 14px 12px;
+      text-align: center; border: 1px solid var(--sky-200);
+    }
+    .tarot-emoji { font-size: 1.8rem; margin-bottom: 6px; display: block; }
+    .tarot-name { font-size: .75rem; font-weight: 700; color: var(--navy); }
+    .tarot-desc { font-size: .68rem; color: var(--muted); margin-top: 2px; line-height: 1.4; }
+
+    /* ══════════════════════════════════════════
+       SOCIAL
+    ══════════════════════════════════════════ */
+    #social {
+      background: var(--sky-50);
+    }
+    .social-inner {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 64px; align-items: center;
+    }
+    .social-cards { display: flex; flex-direction: column; gap: 16px; }
+    .social-card {
+      background: white; border-radius: var(--r-xl); padding: 20px 24px;
+      display: flex; align-items: center; gap: 16px;
+      border: 1px solid rgba(186,230,253,.5);
+      box-shadow: var(--shadow);
+      transition: transform .2s;
+    }
+    .social-card:hover { transform: translateX(6px); }
+    .social-card-icon {
+      width: 48px; height: 48px; border-radius: 16px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.3rem; flex-shrink: 0;
+    }
+    .social-card-title { font-size: 1rem; font-weight: 700; color: var(--navy); margin-bottom: 3px; }
+    .social-card-desc { font-size: .84rem; color: var(--muted); line-height: 1.5; }
+
+    /* ══════════════════════════════════════════
+       TESTIMONIAL
+    ══════════════════════════════════════════ */
+    #reviews {
+      background: white;
+    }
+    .reviews-header { text-align: center; margin-bottom: 48px; }
+    .review-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    .review-card {
+      background: var(--sky-50); border-radius: var(--r-2xl);
+      padding: 28px; border: 1px solid rgba(186,230,253,.4);
+    }
+    .review-stars { color: #FBBF24; font-size: .9rem; margin-bottom: 12px; letter-spacing: 2px; }
+    .review-text { font-size: .9rem; color: var(--ink); line-height: 1.7; margin-bottom: 16px; font-style: italic; }
+    .review-author { display: flex; align-items: center; gap: 10px; }
+    .review-avatar {
+      width: 38px; height: 38px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1rem; flex-shrink: 0;
+    }
+    .review-name { font-size: .88rem; font-weight: 700; color: var(--navy); }
+    .review-role { font-size: .75rem; color: var(--muted); }
+
+    /* ══════════════════════════════════════════
+       CTA SECTION
+    ══════════════════════════════════════════ */
+    #cta {
+      padding: 80px 40px;
+    }
+    .cta-box {
+      max-width: 860px; margin: 0 auto;
+      background: linear-gradient(135deg, var(--navy) 0%, #0c2d55 100%);
+      border-radius: var(--r-3xl); padding: 64px 56px;
+      text-align: center; position: relative; overflow: hidden;
+    }
+    .cta-box::before {
+      content: '';
+      position: absolute; width: 300px; height: 300px;
+      background: radial-gradient(circle, rgba(125,211,252,.2) 0%, transparent 70%);
+      top: -80px; left: -80px; border-radius: 50%;
+    }
+    .cta-box::after {
+      content: '';
+      position: absolute; width: 220px; height: 220px;
+      background: radial-gradient(circle, rgba(240,171,252,.15) 0%, transparent 70%);
+      bottom: -60px; right: -60px; border-radius: 50%;
+    }
+    .cta-box > * { position: relative; z-index: 1; }
+    .cta-title {
+      font-size: clamp(1.8rem, 3vw, 2.6rem);
+      font-weight: 900; color: white; line-height: 1.2; margin-bottom: 14px;
+    }
+    .cta-sub { font-size: 1rem; color: rgba(255,255,255,.6); margin-bottom: 36px; line-height: 1.7; }
+    .cta-btns { display: flex; justify-content: center; gap: 14px; flex-wrap: wrap; }
+    .btn-cta-primary {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: white; color: var(--navy);
+      padding: 14px 28px; border-radius: 100px;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: .95rem; font-weight: 800;
+      text-decoration: none;
+      transition: transform .2s, box-shadow .2s;
+      box-shadow: 0 4px 20px rgba(0,0,0,.2);
+    }
+    .btn-cta-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(0,0,0,.25); }
+    .btn-cta-secondary {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(255,255,255,.1); color: rgba(255,255,255,.85);
+      padding: 14px 28px; border-radius: 100px;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: .95rem; font-weight: 700;
+      text-decoration: none; border: 1.5px solid rgba(255,255,255,.2);
+      transition: background .2s, transform .2s;
+    }
+    .btn-cta-secondary:hover { background: rgba(255,255,255,.15); transform: translateY(-2px); }
+
+    /* ══════════════════════════════════════════
+       FOOTER
+    ══════════════════════════════════════════ */
+    footer {
+      background: white;
+      border-top: 1px solid var(--sky-100);
+      padding: 48px 40px 32px;
+    }
+    .footer-inner {
+      max-width: 1200px; margin: 0 auto;
+      display: grid; grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 40px; margin-bottom: 40px;
+    }
+    .footer-brand-logo {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1.6rem; font-weight: 900; color: var(--sky-600);
+      margin-bottom: 10px; display: block; text-decoration: none;
+    }
+    .footer-brand-desc { font-size: .88rem; color: var(--muted); line-height: 1.7; max-width: 260px; }
+    .footer-socials { display: flex; gap: 10px; margin-top: 20px; }
+    .footer-social {
+      width: 38px; height: 38px; border-radius: 12px;
+      background: var(--sky-50); border: 1px solid var(--sky-100);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--muted); font-size: .95rem; text-decoration: none;
+      transition: background .2s, color .2s;
+    }
+    .footer-social:hover { background: var(--sky-100); color: var(--sky-600); }
+    .footer-col-title { font-family: 'Plus Jakarta Sans', sans-serif; font-size: .88rem; font-weight: 800; color: var(--navy); margin-bottom: 16px; text-transform: uppercase; letter-spacing: .05em; }
+    .footer-links { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .footer-links a { font-size: .88rem; color: var(--muted); text-decoration: none; transition: color .2s; }
+    .footer-links a:hover { color: var(--sky-500); }
+    .footer-bottom {
+      max-width: 1200px; margin: 0 auto;
+      display: flex; justify-content: space-between; align-items: center;
+      padding-top: 28px; border-top: 1px solid var(--sky-100);
+      font-size: .82rem; color: var(--muted);
+    }
+
+    /* ══════════════════════════════════════════
+       RESPONSIVE
+    ══════════════════════════════════════════ */
+    @media (max-width: 1024px) {
+      nav { padding: 14px 24px; }
+      .nav-links { display: none; }
+      .hero-inner { grid-template-columns: 1fr; }
+      .hero-visual { display: none; }
+      .feat-grid { grid-template-columns: 1fr 1fr; }
+      .feat-card.wide { grid-column: span 1; }
+      .ai-inner, .social-inner { grid-template-columns: 1fr; }
+      .game-grid { grid-template-columns: 1fr; }
+      .game-card.tarot-card { grid-column: span 1; }
+      .review-grid { grid-template-columns: 1fr 1fr; }
+      .footer-inner { grid-template-columns: 1fr 1fr; }
+      .how-grid::before { display: none; }
+    }
+
+    @media (max-width: 640px) {
+      .section { padding: 72px 20px; }
+      nav { padding: 12px 20px; }
+      .hero { padding: 100px 20px 60px; }
+      .feat-grid { grid-template-columns: 1fr; }
+      .how-grid { grid-template-columns: 1fr; gap: 20px; }
+      .review-grid { grid-template-columns: 1fr; }
+      .cta-box { padding: 40px 24px; border-radius: 32px; }
+      .footer-inner { grid-template-columns: 1fr; gap: 28px; }
+      .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
+      #ai { margin: 0 12px; }
+    }
+  </style>
 </head>
-<body class="bg-purple-50 text-gray-800 selection:bg-pink-200 selection:text-purple-900">
 
-    <!-- HEADER -->
-    <header class="lumi-bg text-white pt-24 pb-32 relative overflow-hidden rounded-b-[60px] shadow-2xl">
-        <div class="blob bg-white w-64 h-64 rounded-full top-0 left-0 -translate-x-1/2 -translate-y-1/2"></div>
-        <div class="blob bg-yellow-300 w-48 h-48 rounded-full bottom-0 right-0 translate-x-1/3 translate-y-1/3"></div>
-        
-        <div class="container mx-auto px-6 text-center relative z-10">
-            <div class="mb-8 inline-block animate-[bounce_3s_infinite]">
-                <div class="w-24 h-24 bg-white/20 backdrop-blur-md rounded-3xl flex items-center justify-center border border-white/30 shadow-lg">
-                    <i class="fa-solid fa-wallet text-5xl text-yellow-300 drop-shadow-md"></i>
-                </div>
-            </div>
-           
-            <h1 class="text-6xl md:text-8xl font-extrabold mb-4 tracking-tight drop-shadow-sm">LUMI</h1>
-            <p class="text-2xl md:text-3xl font-bold opacity-95 mb-6 text-yellow-100">Không áp lực - Chỉ có sẻ chia ✨</p>
-           
-            <p class="max-w-2xl mx-auto text-lg md:text-xl mb-12 opacity-90 leading-relaxed font-medium">
-                Quản lý tiền nong không cần phải căng thẳng.<br>
-                LUMI ở đây để lắng nghe, thấu hiểu và biến việc tiết kiệm thành những <b>Nhiệm vụ (Quest)</b> thú vị mỗi ngày.
-            </p>
-            
-            <!-- NÚT GOOGLE PLAY - CLICK SẼ CUỘN XUỐNG PHẦN CLOSED TESTING -->
-            <div class="flex flex-col sm:flex-row justify-center gap-5">
-                <a href="#closed-testing" 
-                   class="group bg-black/90 hover:bg-black text-white py-3 px-8 rounded-full transition-all transform hover:scale-105 shadow-xl flex items-center justify-center gap-4 border border-white/10">
-                    <i class="fa-brands fa-google-play text-3xl group-hover:text-green-400 transition-colors"></i>
-                    <div class="text-left">
-                        <p class="text-[10px] uppercase font-bold tracking-wider text-gray-400">Tải ngay trên</p>
-                        <p class="text-xl font-bold leading-none">Google Play</p>
-                    </div>
-                </a>
-            </div>
+<body>
+
+  <!-- ╔══════════════════════════════════╗
+       ║            NAVIGATION            ║
+       ╚══════════════════════════════════╝ -->
+  <nav role="navigation" aria-label="Điều hướng chính">
+    <a href="/" class="nav-logo" aria-label="LUMI trang chủ">
+      <i class="fa-solid fa-wallet" style="color: var(--sky-400)"></i>
+      LUMI
+    </a>
+    <ul class="nav-links">
+      <li><a href="#features">Tính năng</a></li>
+      <li><a href="#ai">AI</a></li>
+      <li><a href="#game">Gamification</a></li>
+      <li><a href="#reviews">Đánh giá</a></li>
+    </ul>
+    <a href="#cta" class="nav-cta">Tải miễn phí</a>
+  </nav>
+
+  <!-- ╔══════════════════════════════════╗
+       ║               HERO               ║
+       ╚══════════════════════════════════╝ -->
+  <header class="hero" role="banner">
+    <div class="hero-inner">
+      <!-- Left: Copy -->
+      <div>
+        <div class="hero-tag">
+          <span class="dot"></span>
+          🇻🇳 Made for Gen Z Việt Nam
         </div>
-    </header>
 
-    <!-- TÍNH NĂNG NỔI BẬT -->
-    <section class="py-24 container mx-auto px-6">
-        <div class="text-center mb-16">
-            <span class="bg-purple-100 text-purple-600 px-4 py-1 rounded-full text-sm font-bold uppercase tracking-wide">Tính năng nổi bật</span>
-            <h2 class="text-4xl md:text-5xl font-extrabold mt-4 text-purple-900">Tài chính "Chữa Lành"</h2>
-            <p class="text-gray-500 mt-4 text-lg max-w-2xl mx-auto">Quên đi những bảng tính khô khan. LUMI mang đến trải nghiệm đầy cảm xúc.</p>
+        <h1>
+          Tiền bạc<br/>
+          <span class="highlight">không cần</span><br/>
+          <span class="pop-text">căng thẳng</span>
+        </h1>
+
+        <p class="hero-desc">
+          LUMI theo dõi chi tiêu, lập ngân sách, nhắc trả nợ và tặng bạn lời động viên từ AI khi "lỡ tay" tiêu hơi nhiều.
+          Quản lý tiền như chơi game — vừa vui, vừa thực tế.
+        </p>
+
+        <div class="hero-btns">
+          <a href="#" class="btn-primary" aria-label="Tải LUMI trên Google Play">
+            <i class="fa-brands fa-google-play"></i>
+            Google Play
+          </a>
+          <a href="#" class="btn-secondary" aria-label="Tải file APK">
+            <i class="fa-solid fa-cloud-arrow-down"></i>
+            Tải file APK
+          </a>
         </div>
-       
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div class="bg-white p-8 rounded-[40px] shadow-lg hover:shadow-2xl transition-all hover:-translate-y-2 border border-purple-50">
-                <div class="w-16 h-16 bg-pink-100 text-pink-500 rounded-3xl flex items-center justify-center mb-6 text-3xl shadow-sm">
-                    <i class="fa-solid fa-face-smile-beam"></i>
-                </div>
-                <h3 class="text-2xl font-bold mb-3 text-gray-800">AI Thấu Cảm</h3>
-                <p class="text-gray-500 leading-relaxed">
-                    Lỡ tay tiêu hoang? Đừng lo, LUMI không trách mắng đâu. Chatbot AI sẽ lắng nghe bạn tâm sự, an ủi và nhẹ nhàng cùng bạn tìm cách cân bằng lại vào ngày mai.
-                </p>
-            </div>
-            <div class="bg-white p-8 rounded-[40px] shadow-lg hover:shadow-2xl transition-all hover:-translate-y-2 border border-purple-50">
-                <div class="w-16 h-16 bg-yellow-100 text-yellow-600 rounded-3xl flex items-center justify-center mb-6 text-3xl shadow-sm">
-                    <i class="fa-solid fa-dungeon"></i>
-                </div>
-                <h3 class="text-2xl font-bold mb-3 text-gray-800">Săn Quest Mỗi Ngày</h3>
-                <p class="text-gray-500 leading-relaxed">
-                    AI tự động tạo ra các <b>Nhiệm vụ (Quest)</b> độc lạ dựa trên thói quen của bạn. Ví dụ: "Thử thách 1 ngày không trà sữa". Hoàn thành để nhận Huy hiệu Limited!
-                </p>
-            </div>
-            <div class="bg-white p-8 rounded-[40px] shadow-lg hover:shadow-2xl transition-all hover:-translate-y-2 border border-purple-50">
-                <div class="w-16 h-16 bg-blue-100 text-blue-600 rounded-3xl flex items-center justify-center mb-6 text-3xl shadow-sm">
-                    <i class="fa-solid fa-users-viewfinder"></i>
-                </div>
-                <h3 class="text-2xl font-bold mb-3 text-gray-800">Kết Bạn & Chill</h3>
-                <p class="text-gray-500 leading-relaxed">
-                    Tài chính không cần phải cô đơn. Quét mã QR danh thiếp, kết bạn bốn phương và cùng nhau đua Top "Người tiêu dùng thông thái".
-                </p>
-            </div>
+
+        <div class="hero-stats" role="region" aria-label="Thống kê LUMI">
+          <div class="hero-stat-item">
+            <div class="hero-stat-num">4.8 ⭐</div>
+            <div class="hero-stat-label">Đánh giá trung bình</div>
+          </div>
+          <div class="hero-stat-item">
+            <div class="hero-stat-num">20+</div>
+            <div class="hero-stat-label">Giao diện theme</div>
+          </div>
+          <div class="hero-stat-item">
+            <div class="hero-stat-num">100%</div>
+            <div class="hero-stat-label">Miễn phí tải về</div>
+          </div>
         </div>
-    </section>
+      </div>
 
-    <!-- CLOSED TESTING -->
-    <section id="closed-testing" class="py-20 bg-gradient-to-br from-purple-100 to-pink-100">
-        <div class="container mx-auto px-6 max-w-4xl">
-            <div class="text-center mb-12">
-                <span class="bg-purple-600 text-white px-5 py-2 rounded-full text-sm font-bold uppercase tracking-widest">Closed Testing</span>
-                <h2 class="text-4xl md:text-5xl font-extrabold mt-4 text-purple-900">Tham gia thử nghiệm LUMI</h2>
-                <p class="text-gray-600 mt-4 text-xl">Hướng dẫn cài đặt phiên bản Closed Test</p>
-            </div>
-
-            <div class="bg-white rounded-3xl shadow-xl p-10">
-                <h3 class="text-2xl font-bold mb-8 text-center text-purple-800">Hướng dẫn tham gia (chỉ mất 1 phút)</h3>
-                
-                <div class="space-y-8">
-                    <div class="flex gap-6">
-                        <div class="w-10 h-10 bg-purple-100 text-purple-600 rounded-2xl flex items-center justify-center flex-shrink-0 font-bold text-xl">1</div>
-                        <div>
-                            <p class="font-semibold text-lg">Join nhóm tester</p>
-                            <p class="text-gray-600">Nhấn vào link để tham gia nhóm Google Tester:</p>
-                            <a href="https://groups.google.com/g/lumiapp-testers" target="_blank" 
-                               class="mt-3 inline-flex items-center gap-2 bg-purple-600 hover:bg-purple-700 text-white px-6 py-3 rounded-2xl font-medium transition">
-                                <i class="fa-solid fa-users"></i>
-                                Tham gia nhóm tester LUMI
-                            </a>
-                            <p class="text-xs text-orange-600 mt-2">⚠️ Nếu bạn ở Việt Nam và link không vào được → hãy bật VPN (miễn phí) rồi thử lại nhé!</p>
-                        </div>
-                    </div>
-
-                    <div class="flex gap-6">
-                        <div class="w-10 h-10 bg-purple-100 text-purple-600 rounded-2xl flex items-center justify-center flex-shrink-0 font-bold text-xl">2</div>
-                        <div>
-                            <p class="font-semibold text-lg">Tải ứng dụng</p>
-                            <p class="text-gray-600">Sau khi join nhóm, nhấn vào link bên dưới để cài app:</p>
-                            <a href="https://play.google.com/store/apps/details?id=com.phucvohoai.lumi_app" target="_blank"
-                               class="mt-3 inline-flex items-center gap-2 bg-emerald-500 hover:bg-emerald-600 text-white px-6 py-3 rounded-2xl font-medium transition">
-                                <i class="fa-brands fa-google-play"></i>
-                                Tải LUMI Closed Test
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+      <!-- Right: Phone mockup -->
+      <div class="hero-visual" aria-hidden="true">
+        <!-- Floating: Quest card -->
+        <div class="float-card quest">
+          <div class="float-title">⚔️ Quest hôm nay</div>
+          <div class="float-body">Không trà sữa 1 ngày</div>
+          <div class="float-sub">+50 điểm uy tín</div>
+          <div class="progress-wrap" style="margin-top:8px">
+            <div class="progress-fill" style="width:60%"></div>
+          </div>
         </div>
-    </section>
 
-    <!-- QUOTE -->
-    <section class="bg-purple-900 text-white py-20 rounded-[50px] mx-4 md:mx-10 relative overflow-hidden">
-        <div class="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]"></div>
-        <div class="container mx-auto px-6 text-center relative z-10">
-            <i class="fa-solid fa-quote-left text-4xl text-purple-400 mb-6"></i>
-            <h3 class="text-2xl md:text-4xl font-bold leading-normal max-w-4xl mx-auto">
-                "LUMI không chỉ là app quản lý tiền.<br>Đó là người bạn nhắc nhở tôi yêu thương bản thân mình hơn qua cách chi tiêu."
-            </h3>
-            <p class="mt-8 font-semibold text-purple-300">- Một LUMI User hạnh phúc -</p>
+        <!-- Phone: real screenshot -->
+        <div class="phone-frame">
+          <img src="lumi-screenshot.jpg" alt="Giao diện ứng dụng LUMI — màn hình chính hiển thị số dư, thu chi và các tính năng" />
         </div>
-    </section>
 
-    <!-- PRIVACY -->
-    <section id="privacy" class="py-20 bg-white mt-10">
-        <div class="container mx-auto px-6 max-w-3xl">
-            <div class="text-center mb-10">
-                <h2 class="text-3xl font-bold text-gray-800">Chính sách quyền riêng tư</h2>
-                <div class="w-20 h-1 bg-purple-500 mx-auto mt-4 rounded-full"></div>
-            </div>
-           
-            <div class="prose prose-purple mx-auto text-gray-600 bg-gray-50 p-8 rounded-3xl border border-gray-100">
-                <p class="text-sm text-gray-400 mb-4 italic">Cập nhật lần cuối: 10/01/2026</p>
-               
-                <p class="mb-4">Chào mừng bạn đến với <strong>LUMI</strong>. Sự riêng tư của bạn là ưu tiên hàng đầu của chúng tôi. Chính sách này giải thích cách chúng tôi xử lý dữ liệu của bạn.</p>
-                
-                <h4 class="text-lg font-bold text-gray-800 mt-6 mb-2">1. Dữ liệu chúng tôi thu thập</h4>
-                <ul class="list-disc pl-5 space-y-2 mb-4">
-                    <li><strong>Thông tin định danh:</strong> Tên hiển thị, Email (thông qua Google/Firebase Auth) để tạo hồ sơ cá nhân.</li>
-                    <li><strong>Dữ liệu tài chính:</strong> Các giao dịch thu chi bạn nhập. Dữ liệu này được lưu trữ cục bộ và đồng bộ hóa bảo mật.</li>
-                    <li><strong>Quyền thiết bị:</strong>
-                        <ul class="list-circle pl-5 mt-1 text-sm text-gray-500">
-                            <li>Camera: Để quét mã QR kết bạn và chụp ảnh hóa đơn.</li>
-                            <li>Thư viện ảnh: Để đổi avatar hoặc gửi ảnh trong chat.</li>
-                        </ul>
-                    </li>
-                </ul>
-
-                <h4 class="text-lg font-bold text-gray-800 mt-6 mb-2">2. Cam kết bảo mật</h4>
-                <p class="mb-4">Chúng tôi sử dụng dữ liệu chỉ để cung cấp tính năng App (Chat AI, Quest, Đồng bộ). Chúng tôi <strong>tuyệt đối không bán</strong> dữ liệu của bạn cho bên thứ ba quảng cáo.</p>
-
-                <h4 class="text-lg font-bold text-gray-800 mt-6 mb-2">3. Quyền của bạn</h4>
-                <p class="mb-4">Bạn có thể yêu cầu xóa toàn bộ tài khoản và dữ liệu lịch sử bất cứ lúc nào trong phần <em>Cài đặt > Tài khoản</em>.</p>
-
-                <h4 class="text-lg font-bold text-gray-800 mt-6 mb-2">4. Liên hệ</h4>
-                <p>Mọi thắc mắc vui lòng gửi về: <a href="mailto:phuc.vo.dev@gmail.com" class="text-purple-600 font-bold hover:underline">phuc.vo.dev@gmail.com</a></p>
-            </div>
+        <!-- Floating: Badge -->
+        <div class="float-card badge">
+          <span class="float-emoji">🏅</span>
+          <div class="float-title">Huy hiệu mới!</div>
+          <div class="float-body">Tiết kiệm thần sầu</div>
+          <div class="float-sub">Tiết kiệm 7 ngày liên tiếp</div>
         </div>
-    </section>
 
-    <!-- FOOTER -->
-    <footer class="bg-gray-50 py-12 text-center border-t border-gray-200">
-        <!-- <div class="mb-6 flex justify-center space-x-6"> -->
-        <!--     <a href="#" class="w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-md text-gray-400 hover:text-blue-600 hover:scale-110 transition"><i class="fa-brands fa-facebook-f"></i></a> -->
-        <!--     <a href="#" class="w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-md text-gray-400 hover:text-black hover:scale-110 transition"><i class="fa-brands fa-tiktok"></i></a> -->
-        <!--     <a href="#" class="w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-md text-gray-400 hover:text-pink-600 hover:scale-110 transition"><i class="fa-brands fa-instagram"></i></a> -->
-        <!-- </div> -->
-        <p class="text-gray-400 font-medium text-sm">© 2026 LUMI App. Developed by L-Luminous Studio</p>
-    </footer>
+        <!-- Floating: Tarot -->
+        <div class="float-card tarot">
+          <span class="float-emoji">🔮</span>
+          <div class="float-title">Tarot hôm nay</div>
+          <div class="float-body">The Star</div>
+          <div class="float-sub">Ngày tốt để tiết kiệm</div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ╔══════════════════════════════════╗
+       ║             FEATURES             ║
+       ╚══════════════════════════════════╝ -->
+  <section class="section" id="features" aria-labelledby="feat-heading">
+    <div class="section-inner">
+      <div class="features-header">
+        <span class="section-tag">Tính năng nổi bật</span>
+        <h2 class="section-title" id="feat-heading">Mọi thứ bạn cần để<br/>làm chủ tài chính</h2>
+        <p class="section-sub">Từ ghi chép đơn giản đến phân tích 50/30/20, LUMI có đủ công cụ mà không bao giờ làm bạn bị áp lực.</p>
+      </div>
+      <div class="feat-grid">
+        <div class="feat-card" style="--icon-glow:#BAE6FD">
+          <div class="feat-icon" style="background:#E0F4FF; color:var(--sky-500)"><i class="fa-solid fa-wallet"></i></div>
+          <div class="feat-title">Quản lý Thu Chi</div>
+          <div class="feat-desc">Ghi chép nhanh, tự động phân loại hạng mục theo thói quen. Hỗ trợ ngân sách, hóa đơn định kỳ và sổ nợ chi tiết.</div>
+          <div class="feat-tag-list">
+            <span class="feat-tag">Giao dịch</span>
+            <span class="feat-tag">Ngân sách</span>
+            <span class="feat-tag">Sổ nợ</span>
+          </div>
+        </div>
+
+        <div class="feat-card" style="--icon-glow:#D1FAE5">
+          <div class="feat-icon" style="background:#D1FAE5; color:#059669"><i class="fa-solid fa-piggy-bank"></i></div>
+          <div class="feat-title">Mục tiêu Tiết kiệm</div>
+          <div class="feat-desc">Đặt mục tiêu mua sắm hoặc du lịch, theo dõi tiến độ và nhận nhắc nhở định kỳ để không bao giờ bỏ lỡ mốc tiết kiệm.</div>
+          <div class="feat-tag-list">
+            <span class="feat-tag">Saving Goals</span>
+            <span class="feat-tag">Tiến độ</span>
+          </div>
+        </div>
+
+        <div class="feat-card wide" style="--icon-glow:#EDE9FE">
+          <div style="display:flex; gap:40px; align-items:center;">
+            <div style="flex:1">
+              <div class="feat-icon" style="background:#EDE9FE; color:#7C3AED"><i class="fa-solid fa-chart-pie"></i></div>
+              <div class="feat-title">Phân tích 50/30/20</div>
+              <div class="feat-desc">AI tự động phân loại chi tiêu vào 3 nhóm: Thiết yếu, Sở thích và Tích lũy. Heatmap giao dịch trực quan như GitHub — nhìn là hiểu ngay sức khỏe tài chính của mình.</div>
+              <div class="feat-tag-list">
+                <span class="feat-tag">Donut Chart</span>
+                <span class="feat-tag">Heatmap</span>
+                <span class="feat-tag">So sánh Thu–Chi</span>
+              </div>
+            </div>
+            <div style="flex-shrink:0; display:flex; flex-direction:column; gap:8px; min-width:180px">
+              <div style="background:var(--sky-50); border-radius:16px; padding:14px; border:1px solid var(--sky-100)">
+                <div style="font-size:.7rem; font-weight:700; color:var(--muted); margin-bottom:6px">Thiết yếu (50%)</div>
+                <div style="height:8px; background:var(--sky-100); border-radius:100px; overflow:hidden"><div style="height:100%; width:72%; background:var(--sky-400); border-radius:100px"></div></div>
+              </div>
+              <div style="background:var(--sky-50); border-radius:16px; padding:14px; border:1px solid var(--sky-100)">
+                <div style="font-size:.7rem; font-weight:700; color:var(--muted); margin-bottom:6px">Sở thích (30%)</div>
+                <div style="height:8px; background:var(--sky-100); border-radius:100px; overflow:hidden"><div style="height:100%; width:45%; background:#A78BFA; border-radius:100px"></div></div>
+              </div>
+              <div style="background:var(--sky-50); border-radius:16px; padding:14px; border:1px solid var(--sky-100)">
+                <div style="font-size:.7rem; font-weight:700; color:var(--muted); margin-bottom:6px">Tích lũy (20%)</div>
+                <div style="height:8px; background:var(--sky-100); border-radius:100px; overflow:hidden"><div style="height:100%; width:28%; background:var(--green); border-radius:100px"></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="feat-card tall" style="--icon-glow:transparent">
+          <div class="feat-icon" style="background:rgba(125,211,252,.2); color:var(--sky-300)"><i class="fa-solid fa-camera"></i></div>
+          <div class="feat-title">Quét Hóa đơn OCR</div>
+          <div class="feat-desc">Chụp hóa đơn giấy, AI tự đọc tên cửa hàng, tổng tiền và phân loại. Nhận diện ngay Circle K, WinMart, Highlands...</div>
+        </div>
+
+        <div class="feat-card" style="--icon-glow:#FEF3C7">
+          <div class="feat-icon" style="background:#FEF3C7; color:#D97706"><i class="fa-solid fa-bell"></i></div>
+          <div class="feat-title">Hóa đơn Định kỳ</div>
+          <div class="feat-desc">Lập lịch tiền điện, nước, Netflix, Gym... AI tự nhắc và có thể trừ tiền ví ngay khi xác nhận qua chat.</div>
+          <div class="feat-tag-list">
+            <span class="feat-tag">Tự động hóa</span>
+            <span class="feat-tag">Nhắc lịch</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ╔══════════════════════════════════╗
+       ║           HOW IT WORKS           ║
+       ╚══════════════════════════════════╝ -->
+  <section class="section" id="how" aria-labelledby="how-heading">
+    <div class="section-inner">
+      <div style="text-align:center">
+        <span class="section-tag">Bắt đầu dễ dàng</span>
+        <h2 class="section-title" id="how-heading">3 bước để làm chủ<br/>tài chính cá nhân</h2>
+      </div>
+      <div class="how-grid">
+        <div class="how-step">
+          <div class="how-num">1</div>
+          <div class="how-title">Tạo tài khoản</div>
+          <div class="how-desc">Đăng nhập bằng Google trong vài giây. LUMI tự tạo ví và profile cá nhân ngay lập tức.</div>
+        </div>
+        <div class="how-step">
+          <div class="how-num">2</div>
+          <div class="how-title">Ghi chép chi tiêu</div>
+          <div class="how-desc">Nhập giao dịch thủ công, chat với AI hoặc chụp hóa đơn. Chỉ mất 5 giây mỗi lần.</div>
+        </div>
+        <div class="how-step">
+          <div class="how-num">3</div>
+          <div class="how-title">Nhận insight & Quest</div>
+          <div class="how-desc">AI phân tích thói quen, giao Quest hằng tuần và nhắc bạn khi sắp vượt ngân sách.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ╔══════════════════════════════════╗
+       ║          AI SECTION              ║
+       ╚══════════════════════════════════╝ -->
+  <section class="section" id="ai" aria-labelledby="ai-heading">
+    <div class="section-inner">
+      <div class="ai-inner">
+        <!-- Chat mockup -->
+        <div>
+          <div class="ai-chat" role="log" aria-label="Demo chat với LUMI AI">
+            <div class="chat-msg user">
+              <div class="chat-avatar user">🙋</div>
+              <div class="chat-bubble user">Mình vừa tiêu 200k mua quần áo sale 😅</div>
+            </div>
+            <div class="chat-msg">
+              <div class="chat-avatar ai">✨</div>
+              <div class="chat-bubble ai">Oke! Mình đã ghi nhận khoản chi <span class="amount">200.000₫</span> vào mục Mua sắm rồi nhé. Sale thì mua là đúng rồi, miễn vẫn trong budget là ổn thôi 😄</div>
+            </div>
+            <div class="chat-msg user">
+              <div class="chat-avatar user">🙋</div>
+              <div class="chat-bubble user">Tháng này mình còn dư bao nhiêu?</div>
+            </div>
+            <div class="chat-msg">
+              <div class="chat-avatar ai">✨</div>
+              <div class="chat-bubble ai">Còn dư <span class="amount">1.250.000₫</span> so với ngân sách tháng này! Mục Ăn uống đang dùng 68%, các mục khác đều trong tầm kiểm soát. Cố thêm chút nữa là về đích rồi 💪</div>
+            </div>
+            <div class="chat-msg">
+              <div class="chat-avatar ai">✨</div>
+              <div class="chat-bubble ai">Tiện đây mình cũng nhắc: <span class="amount">tiền điện</span> sẽ đến hạn vào ngày 20. Đừng quên thanh toán nhé!</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: features list -->
+        <div>
+          <span class="section-tag">Trợ lý AI thấu cảm</span>
+          <h2 class="section-title" id="ai-heading" style="color:white">AI biết hết nhưng<br/>không bao giờ phán xét</h2>
+          <p class="section-sub">LUMI AI nắm rõ toàn bộ tài chính của bạn — giao dịch, ngân sách, nợ, hóa đơn — và đưa ra lời khuyên cá nhân hóa thực sự.</p>
+
+          <ul class="ai-features">
+            <li class="ai-feat-item">
+              <div class="ai-feat-icon">💬</div>
+              <div>
+                <div class="ai-feat-title">Ghi chép qua chat tự nhiên</div>
+                <div class="ai-feat-desc">Nói hoặc gõ "mua cà phê 45k" — AI tự tạo giao dịch, không cần điền form.</div>
+              </div>
+            </li>
+            <li class="ai-feat-item">
+              <div class="ai-feat-icon">📊</div>
+              <div>
+                <div class="ai-feat-title">Phân tích & tư vấn cá nhân hóa</div>
+                <div class="ai-feat-desc">Nhận xét tình hình tài chính thực tế, gợi ý tiết kiệm dựa trên thói quen của riêng bạn.</div>
+              </div>
+            </li>
+            <li class="ai-feat-item">
+              <div class="ai-feat-icon">🔮</div>
+              <div>
+                <div class="ai-feat-title">Tarot Tài chính mỗi ngày</div>
+                <div class="ai-feat-desc">Rút 1 lá bài Tarot, AI giải nghĩa dựa trên dữ liệu chi tiêu thực của bạn. Tâm linh nhưng có data.</div>
+              </div>
+            </li>
+            <li class="ai-feat-item">
+              <div class="ai-feat-icon">🚨</div>
+              <div>
+                <div class="ai-feat-title">Chế độ Báo động đỏ</div>
+                <div class="ai-feat-desc">Vượt ngân sách? Giao diện đổi sang đỏ, AI "khịa" nhẹ để kéo bạn dừng lại kịp thời.</div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ╔══════════════════════════════════╗
+       ║          GAMIFICATION            ║
+       ╚══════════════════════════════════╝ -->
+  <section class="section" id="game" aria-labelledby="game-heading">
+    <div class="section-inner">
+      <div style="text-align:center; margin-bottom:48px">
+        <span class="section-tag">Gamification</span>
+        <h2 class="section-title" id="game-heading">Tiết kiệm như<br/>chơi game thật sự</h2>
+        <p class="section-sub" style="margin:0 auto">Quest hằng tuần, huy hiệu sưu tầm, điểm uy tín — không còn chuyện "biết rồi nhưng lười làm" nữa.</p>
+      </div>
+
+      <div class="game-grid">
+        <div class="game-card quest-card">
+          <span class="game-card-icon">⚔️</span>
+          <div class="game-card-title">Sảnh Thử Thách</div>
+          <div class="game-card-desc">5 Quest mới mỗi tuần, được AI tạo dựa trên thói quen của riêng bạn.</div>
+          <div class="quest-row" style="margin-top:16px">
+            <div class="quest-item">
+              <div class="quest-item-top">
+                <span class="quest-item-name">🧋 Không trà sữa 3 ngày</span>
+                <span class="quest-item-pts">+80 pts</span>
+              </div>
+              <div class="q-bar-wrap"><div class="q-bar-fill" style="width:67%"></div></div>
+            </div>
+            <div class="quest-item">
+              <div class="quest-item-top">
+                <span class="quest-item-name">📝 Ghi chép đủ 7 ngày</span>
+                <span class="quest-item-pts">+50 pts</span>
+              </div>
+              <div class="q-bar-wrap"><div class="q-bar-fill" style="width:43%"></div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="game-card badge-card">
+          <span class="game-card-icon">🏅</span>
+          <div class="game-card-title">Hệ thống Huy hiệu</div>
+          <div class="game-card-desc">Sưu tầm huy hiệu khi đạt mốc tài chính. Càng nhiều, điểm uy tín càng cao.</div>
+          <div class="badge-row">
+            <span class="badge-chip">💰 Tiết kiệm thần sầu</span>
+            <span class="badge-chip">💸 Kẻ hủy diệt hóa đơn</span>
+            <span class="badge-chip">📊 Nhà phân tích nhỏ</span>
+            <span class="badge-chip">🎯 7 ngày hoàn hảo</span>
+          </div>
+        </div>
+
+        <div class="game-card tarot-card">
+          <span class="game-card-icon">🔮</span>
+          <div class="game-card-title">LUMI Tarot — Tiên tri tài chính mỗi ngày</div>
+          <div class="game-card-desc">Rút 1 lá bài từ bộ 22 Major Arcana. AI phân tích kết hợp với lịch sử chi tiêu của bạn để đưa ra lời khuyên "tâm linh nhưng có data".</div>
+          <div class="tarot-grid">
+            <div class="tarot-card-mini">
+              <span class="tarot-emoji">⭐</span>
+              <div class="tarot-name">The Star</div>
+              <div class="tarot-desc">Ngày tốt để tiết kiệm mục tiêu lớn</div>
+            </div>
+            <div class="tarot-card-mini">
+              <span class="tarot-emoji">🌙</span>
+              <div class="tarot-name">The Moon</div>
+              <div class="tarot-desc">Cẩn thận chi tiêu bốc đồng hôm nay</div>
+            </div>
+            <div class="tarot-card-mini">
+              <span class="tarot-emoji">☀️</span>
+              <div class="tarot-name">The Sun</div>
+              <div class="tarot-desc">Tuần tốt, ngân sách đang khỏe mạnh</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="game-card mode-card">
+          <span class="game-card-icon">🎨</span>
+          <div class="game-card-title">Tủ đồ & Giao diện</div>
+          <div class="game-card-desc">20+ theme từ Pastel đến Dark Mode. Mở khóa theme VVIP bằng điểm uy tín — không cần trả tiền.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ╔══════════════════════════════════╗
+       ║             SOCIAL               ║
+       ╚══════════════════════════════════╝ -->
+  <section class="section" id="social" aria-labelledby="social-heading">
+    <div class="section-inner">
+      <div class="social-inner">
+        <div>
+          <span class="section-tag">Mạng xã hội tài chính</span>
+          <h2 class="section-title" id="social-heading">Tài chính vui hơn<br/>khi có bạn đồng hành</h2>
+          <p class="section-sub">Quét QR kết bạn, cùng đua top "Người tiêu dùng thông thái", chat real-time và chia sẻ vibe tài chính hôm nay.</p>
+        </div>
+        <div class="social-cards">
+          <div class="social-card">
+            <div class="social-card-icon" style="background:#E0F4FF; color:var(--sky-500)"><i class="fa-solid fa-comment-dots"></i></div>
+            <div>
+              <div class="social-card-title">Chat</div>
+              <div class="social-card-desc">Nhắn tin real-time, gửi sticker với bạn bè.</div>
+            </div>
+          </div>
+          <div class="social-card">
+            <div class="social-card-icon" style="background:#FEF3C7; color:#D97706"><i class="fa-solid fa-qrcode"></i></div>
+            <div>
+              <div class="social-card-title">Kết bạn qua QR</div>
+              <div class="social-card-desc">Quét mã QR danh thiếp để kết bạn ngay, không cần tìm tên hay số điện thoại.</div>
+            </div>
+          </div>
+          <div class="social-card">
+            <div class="social-card-icon" style="background:#EDE9FE; color:#7C3AED"><i class="fa-solid fa-face-laugh-beam"></i></div>
+            <div>
+              <div class="social-card-title">Vibe & Trạng thái</div>
+              <div class="social-card-desc">Chia sẻ tâm trạng tài chính hôm nay. Caption tự thay đổi mỗi 4 tiếng theo vibe bạn chọn.</div>
+            </div>
+          </div>
+          <div class="social-card">
+            <div class="social-card-icon" style="background:#D1FAE5; color:#059669"><i class="fa-solid fa-trophy"></i></div>
+            <div>
+              <div class="social-card-title">Bảng xếp hạng</div>
+              <div class="social-card-desc">Cùng bạn bè đua top "Người tiêu dùng thông thái" mỗi tuần.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ╔══════════════════════════════════╗
+       ║            REVIEWS               ║
+       ╚══════════════════════════════════╝ -->
+  <section class="section" id="reviews" aria-labelledby="reviews-heading">
+    <div class="section-inner">
+      <div class="reviews-header">
+        <span class="section-tag">Người dùng nói gì</span>
+        <h2 class="section-title" id="reviews-heading">Cộng đồng LUMI<br/>đang nói gì?</h2>
+      </div>
+      <div class="review-grid">
+        <article class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"Từ hồi dùng LUMI, mình không còn giật mình cuối tháng nữa. Quest mỗi tuần khiến mình thực sự hứng thú ghi chép tiền."</p>
+          <div class="review-author">
+            <div class="review-avatar" style="background:#E0F4FF">🙋‍♀️</div>
+            <div>
+              <div class="review-name">Minh Anh, 22 tuổi</div>
+              <div class="review-role">Sinh viên, TP.HCM</div>
+            </div>
+          </div>
+        </article>
+        <article class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"Chức năng chat AI hay nhất là mình cứ nhắn tin như kể chuyện, nó tự ghi hết. Không cần điền form mệt mỏi nữa."</p>
+          <div class="review-author">
+            <div class="review-avatar" style="background:#FEF3C7">🧑‍💻</div>
+            <div>
+              <div class="review-name">Quốc Huy, 24 tuổi</div>
+              <div class="review-role">Fresher Developer, Hà Nội</div>
+            </div>
+          </div>
+        </article>
+        <article class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"Tarot tài chính nghe có vẻ buồn cười nhưng lại cực kỳ chính xác vì nó dựa trên chi tiêu thật của mình. Mỗi sáng rút bài xong mới yên tâm 😂"</p>
+          <div class="review-author">
+            <div class="review-avatar" style="background:#EDE9FE">🧕</div>
+            <div>
+              <div class="review-name">Thu Hà, 20 tuổi</div>
+              <div class="review-role">Sinh viên, Đà Nẵng</div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ╔══════════════════════════════════╗
+       ║               CTA                ║
+       ╚══════════════════════════════════╝ -->
+  <section id="cta" class="section" style="padding-top:0" aria-labelledby="cta-heading">
+    <div class="cta-box">
+      <div class="hero-tag" style="margin:0 auto 24px; display:inline-flex">
+        <span class="dot"></span>
+        Miễn phí hoàn toàn
+      </div>
+      <h2 class="cta-title" id="cta-heading">Bắt đầu hành trình<br/>tài chính của bạn hôm nay</h2>
+      <p class="cta-sub">Không cần thẻ tín dụng. Không có quảng cáo. Chỉ cần tải về và bắt đầu — trong 60 giây.</p>
+      <div class="cta-btns">
+        <a href="#" class="btn-cta-primary" aria-label="Tải LUMI trên Google Play">
+          <i class="fa-brands fa-google-play"></i> Google Play
+        </a>
+        <a href="#" class="btn-cta-secondary" aria-label="Tải file APK trực tiếp">
+          <i class="fa-solid fa-cloud-arrow-down"></i> Tải APK
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ╔══════════════════════════════════╗
+       ║              FOOTER              ║
+       ╚══════════════════════════════════╝ -->
+  <footer role="contentinfo">
+    <div class="footer-inner">
+      <div>
+        <a href="/" class="footer-brand-logo">LUMI</a>
+        <p class="footer-brand-desc">Ứng dụng quản lý tài chính cá nhân thông minh cho Gen Z Việt Nam. AI thấu cảm, Gamification vui, dữ liệu an toàn.</p>
+        <div class="footer-socials">
+          <a href="#" class="footer-social" aria-label="Facebook LUMI"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="#" class="footer-social" aria-label="TikTok LUMI"><i class="fa-brands fa-tiktok"></i></a>
+          <a href="#" class="footer-social" aria-label="Instagram LUMI"><i class="fa-brands fa-instagram"></i></a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Ứng dụng</div>
+        <ul class="footer-links">
+          <li><a href="#features">Tính năng</a></li>
+          <li><a href="#ai">LUMI AI</a></li>
+          <li><a href="#game">Gamification</a></li>
+          <li><a href="#social">Cộng đồng</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Hỗ trợ</div>
+        <ul class="footer-links">
+          <li><a href="#">Câu hỏi thường gặp</a></li>
+          <li><a href="#">Liên hệ hỗ trợ</a></li>
+          <li><a href="mailto:phucvohoai.dev@gmail.com">Email chúng tôi</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Pháp lý</div>
+        <ul class="footer-links">
+          <li><a href="/privacy">Chính sách riêng tư</a></li>dev
+          <li><a href="/terms">Điều khoản sử dụng</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 LUMI App. Built with ❤️ & ☕ tại Việt Nam.</span>
+      <span>Dữ liệu của bạn — không bán cho bên thứ ba.</span>
+    </div>
+  </footer>
+
 </body>
 </html>
