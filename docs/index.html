@@ -4,13 +4,14 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- ═══ PRIMARY SEO ═══ -->
   <title>LUMI – Quản lý tài chính thấu cảm, có AI đồng hành</title>
   <meta name="description" content="LUMI giúp bạn theo dõi thu chi, lập ngân sách, tiết kiệm mục tiêu và nhận lời khuyên từ AI thấu cảm. Gamification + mạng xã hội tài chính dành cho Gen Z Việt Nam." />
-  <meta name="keywords" content="quản lý tài chính, app chi tiêu, tiết kiệm tiền, AI tài chính, LUMI app, ứng dụng quản lý chi tiêu Việt Nam" />
   <link rel="canonical" href="https://lumi.app/" />
 
-  <!-- ═══ OPEN GRAPH ═══ -->
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://lumi.app/" />
   <meta property="og:title" content="LUMI – Quản lý tài chính thấu cảm, có AI đồng hành" />
@@ -19,13 +20,11 @@
   <meta property="og:locale" content="vi_VN" />
   <meta property="og:site_name" content="LUMI App" />
 
-  <!-- ═══ TWITTER CARD ═══ -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="LUMI – Quản lý tài chính thấu cảm, có AI đồng hành" />
   <meta name="twitter:description" content="App quản lý chi tiêu Gen Z: AI thấu cảm, Quest tiết kiệm, Tarot tài chính. Miễn phí trên Android." />
   <meta name="twitter:image" content="https://lumi.app/og-cover.png" />
 
-  <!-- ═══ STRUCTURED DATA ═══ -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -35,22 +34,16 @@
     "applicationCategory": "FinanceApplication",
     "offers": { "@type": "Offer", "price": "0", "priceCurrency": "VND" },
     "description": "Ứng dụng quản lý tài chính cá nhân thông minh kết hợp AI, Gamification và mạng xã hội cho người dùng Việt Nam.",
-    "url": "https://lumi.app",
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": "4.8",
-      "reviewCount": "1200"
-    }
+    "url": "https://lumi.app/"
   }
   </script>
 
   <meta name="theme-color" content="#BAE6FD" />
   <meta name="robots" content="index, follow" />
 
-  <!-- ═══ FONTS ═══ -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 
   <style>
@@ -83,14 +76,30 @@
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    * {
+      font-family: 'Baloo 2', sans-serif !important;
+    }
 
     html { scroll-behavior: smooth; }
 
     body {
-      font-family: 'Inter', sans-serif;
-      background: var(--sky-50);
-      color: var(--ink);
+      font-family: 'Baloo 2', sans-serif;
       -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      text-rendering: optimizeLegibility;
+    }
+
+    h1, h2, h3, h4, h5, h6, p, a, li, label, div {
+      font-family: 'Baloo 2', sans-serif;
+    }
+
+    input, button, textarea, select {
+      font-family: inherit;
+    }
+
+    i[class^="fa-"], i[class*=" fa-"], 
+    span[class^="fa-"], span[class*=" fa-"] {
+      font-family: "Font Awesome 6 Free", "Font Awesome 6 Brands" !important;
     }
 
     h1, h2, h3, h4, .display {
@@ -148,7 +157,6 @@
       background: linear-gradient(150deg, #E0F7FF 0%, #F0F4FF 50%, #FFF0FB 100%);
     }
 
-    /* Decorative blobs */
     .hero::before {
       content: '';
       position: absolute; width: 520px; height: 520px;
@@ -251,7 +259,7 @@
     }
     .hero-stat-label { font-size: .8rem; color: var(--muted); font-weight: 500; }
 
-    /* ── Hero Visual: Phone Mockup with floating cards ── */
+    /* ── Hero Visual ── */
     .hero-visual {
       position: relative; display: flex;
       justify-content: center; align-items: center;
@@ -264,7 +272,7 @@
     }
     .phone-frame img {
       width: 100%;
-      border-radius: 44px;
+      border-radius: 24px;
       display: block;
     }
 
@@ -299,7 +307,11 @@
     .float-title { font-size: .65rem; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: .05em; margin-bottom: 4px; }
     .float-body { font-size: .82rem; font-weight: 700; color: var(--navy); }
     .float-sub { font-size: .7rem; color: var(--muted); margin-top: 2px; }
-    .float-emoji { font-size: 1.4rem; margin-bottom: 4px; display: block; }
+    .float-icon {
+      font-size: 1.4rem; margin-bottom: 4px; display: flex;
+      align-items: center; justify-content: flex-start;
+      color: var(--sky-500);
+    }
     .progress-wrap { height: 5px; background: var(--sky-100); border-radius: 100px; margin-top: 7px; overflow: hidden; }
     .progress-fill { height: 100%; background: linear-gradient(90deg, var(--sky-400), var(--pop)); border-radius: 100px; }
 
@@ -431,8 +443,8 @@
       display: flex; align-items: center; justify-content: center;
       font-size: .9rem; flex-shrink: 0;
     }
-    .chat-avatar.ai { background: var(--sky-400); }
-    .chat-avatar.user { background: var(--pop); }
+    .chat-avatar.ai { background: var(--sky-400); color: white; }
+    .chat-avatar.user { background: var(--pop); color: white; }
     .chat-bubble {
       max-width: 75%; padding: 11px 15px; border-radius: 18px;
       font-size: .85rem; line-height: 1.55;
@@ -457,7 +469,7 @@
       width: 40px; height: 40px; border-radius: 14px;
       background: rgba(125,211,252,.15);
       display: flex; align-items: center; justify-content: center;
-      font-size: 1.1rem; flex-shrink: 0;
+      font-size: 1.1rem; flex-shrink: 0; color: var(--sky-300);
     }
     .ai-feat-title { font-size: .95rem; font-weight: 700; color: white; margin-bottom: 2px; }
     .ai-feat-desc { font-size: .82rem; color: rgba(255,255,255,.55); line-height: 1.55; }
@@ -489,7 +501,10 @@
       background: linear-gradient(135deg, #FFF1F2 0%, #FFE4E6 100%);
       border: 1px solid #FECDD3;
     }
-    .game-card-icon { font-size: 2.4rem; margin-bottom: 16px; display: block; }
+    .game-card-icon {
+      font-size: 2rem; margin-bottom: 16px; display: flex;
+      align-items: center;
+    }
     .game-card-title { font-size: 1.2rem; font-weight: 800; color: var(--navy); margin-bottom: 8px; }
     .game-card-desc { font-size: .9rem; color: var(--muted); line-height: 1.65; }
     .badge-row { display: flex; gap: 8px; margin-top: 14px; flex-wrap: wrap; }
@@ -501,11 +516,13 @@
       border: 1.5px solid rgba(0,0,0,.08);
       box-shadow: 0 2px 8px rgba(0,0,0,.05);
     }
+    .badge-chip i { color: var(--sky-500); }
     .quest-progress { margin-top: 16px; }
     .quest-row { display: flex; flex-direction: column; gap: 10px; }
     .quest-item { background: white; border-radius: 14px; padding: 10px 14px; }
     .quest-item-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; }
-    .quest-item-name { font-size: .82rem; font-weight: 700; color: var(--navy); }
+    .quest-item-name { font-size: .82rem; font-weight: 700; color: var(--navy); display: flex; align-items: center; gap: 6px; }
+    .quest-item-name i { color: var(--sky-500); }
     .quest-item-pts { font-size: .7rem; font-weight: 700; color: var(--sky-500); }
     .q-bar-wrap { height: 5px; background: var(--sky-100); border-radius: 100px; overflow: hidden; }
     .q-bar-fill { height: 100%; border-radius: 100px; background: linear-gradient(90deg, var(--sky-400), var(--sky-300)); }
@@ -514,7 +531,7 @@
       flex: 1; background: white; border-radius: 16px; padding: 14px 12px;
       text-align: center; border: 1px solid var(--sky-200);
     }
-    .tarot-emoji { font-size: 1.8rem; margin-bottom: 6px; display: block; }
+    .tarot-icon { font-size: 1.6rem; margin-bottom: 6px; display: flex; justify-content: center; color: var(--sky-500); }
     .tarot-name { font-size: .75rem; font-weight: 700; color: var(--navy); }
     .tarot-desc { font-size: .68rem; color: var(--muted); margin-top: 2px; line-height: 1.4; }
 
@@ -693,6 +710,7 @@
       .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
       #ai { margin: 0 12px; }
     }
+
     /* ══════════════════════════════════════════
        CUSTOM 50/30/20 CARD LAYOUT
     ══════════════════════════════════════════ */
@@ -704,7 +722,6 @@
       flex-shrink: 0; display: flex; flex-direction: column; gap: 8px; min-width: 180px;
     }
 
-    /* Thêm vào ngay trong khối @media (max-width: 640px) có sẵn của ông */
     @media (max-width: 640px) {
       .feat-split {
         flex-direction: column; gap: 24px; align-items: flex-start;
@@ -713,6 +730,7 @@
         min-width: 100%; width: 100%;
       }
     }
+
     /* ══════════════════════════════════════════
        TESTER MODAL
     ══════════════════════════════════════════ */
@@ -753,6 +771,18 @@
     .step-item p { font-size: 0.85rem; color: var(--muted); line-height: 1.5; }
     .step-item a { color: var(--sky-500); font-weight: 700; text-decoration: none; }
     .step-item a:hover { text-decoration: underline; }
+
+    /* ══════════════════════════════════════════
+       FA ICON COLOR HELPERS
+    ══════════════════════════════════════════ */
+    .ic-yellow  { color: #D97706; }
+    .ic-purple  { color: #7C3AED; }
+    .ic-green   { color: #059669; }
+    .ic-pink    { color: #DB2777; }
+    .ic-sky     { color: var(--sky-500); }
+    .ic-navy    { color: var(--navy); }
+    .ic-red     { color: #DC2626; }
+    .ic-white   { color: white; }
   </style>
 </head>
 
@@ -784,7 +814,8 @@
       <div>
         <div class="hero-tag">
           <span class="dot"></span>
-          🇻🇳 Made for Gen Z Việt Nam
+          <i class="fa-solid fa-flag" style="color:var(--sky-500); font-size:.75rem"></i>
+          Made for Gen Z Việt Nam
         </div>
 
         <h1>
@@ -807,7 +838,7 @@
 
         <div class="hero-stats" role="region" aria-label="Thống kê LUMI">
           <div class="hero-stat-item">
-            <div class="hero-stat-num">4.8 ⭐</div>
+            <div class="hero-stat-num">4.8 <i class="fa-solid fa-star" style="color:#FBBF24; font-size:1.2rem"></i></div>
             <div class="hero-stat-label">Đánh giá trung bình</div>
           </div>
           <div class="hero-stat-item">
@@ -825,7 +856,7 @@
       <div class="hero-visual" aria-hidden="true">
         <!-- Floating: Quest card -->
         <div class="float-card quest">
-          <div class="float-title">⚔️ Quest hôm nay</div>
+          <div class="float-title"><i class="fa-solid fa-shield-halved ic-yellow"></i> Quest hôm nay</div>
           <div class="float-body">Không trà sữa 1 ngày</div>
           <div class="float-sub">+50 điểm uy tín</div>
           <div class="progress-wrap" style="margin-top:8px">
@@ -840,7 +871,7 @@
 
         <!-- Floating: Badge -->
         <div class="float-card badge">
-          <span class="float-emoji">🏅</span>
+          <div class="float-icon"><i class="fa-solid fa-medal ic-yellow"></i></div>
           <div class="float-title">Huy hiệu mới!</div>
           <div class="float-body">Tiết kiệm thần sầu</div>
           <div class="float-sub">Tiết kiệm 7 ngày liên tiếp</div>
@@ -848,7 +879,7 @@
 
         <!-- Floating: Tarot -->
         <div class="float-card tarot">
-          <span class="float-emoji">🔮</span>
+          <div class="float-icon"><i class="fa-solid fa-hat-wizard ic-purple"></i></div>
           <div class="float-title">Tarot hôm nay</div>
           <div class="float-body">The Star</div>
           <div class="float-sub">Ngày tốt để tiết kiệm</div>
@@ -977,23 +1008,23 @@
         <div>
           <div class="ai-chat" role="log" aria-label="Demo chat với LUMI AI">
             <div class="chat-msg user">
-              <div class="chat-avatar user">🙋</div>
-              <div class="chat-bubble user">Mình vừa tiêu 200k mua quần áo sale 😅</div>
+              <div class="chat-avatar user"><i class="fa-solid fa-user"></i></div>
+              <div class="chat-bubble user">Mình vừa tiêu 200k mua quần áo sale</div>
             </div>
             <div class="chat-msg">
-              <div class="chat-avatar ai">✨</div>
-              <div class="chat-bubble ai">Oke! Mình đã ghi nhận khoản chi <span class="amount">200.000₫</span> vào mục Mua sắm rồi nhé. Sale thì mua là đúng rồi, miễn vẫn trong budget là ổn thôi 😄</div>
+              <div class="chat-avatar ai"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+              <div class="chat-bubble ai">Oke! Mình đã ghi nhận khoản chi <span class="amount">200.000₫</span> vào mục Mua sắm rồi nhé. Sale thì mua là đúng rồi, miễn vẫn trong budget là ổn thôi <i class="fa-solid fa-face-smile" style="color:#FDE68A"></i></div>
             </div>
             <div class="chat-msg user">
-              <div class="chat-avatar user">🙋</div>
+              <div class="chat-avatar user"><i class="fa-solid fa-user"></i></div>
               <div class="chat-bubble user">Tháng này mình còn dư bao nhiêu?</div>
             </div>
             <div class="chat-msg">
-              <div class="chat-avatar ai">✨</div>
-              <div class="chat-bubble ai">Còn dư <span class="amount">1.250.000₫</span> so với ngân sách tháng này! Mục Ăn uống đang dùng 68%, các mục khác đều trong tầm kiểm soát. Cố thêm chút nữa là về đích rồi 💪</div>
+              <div class="chat-avatar ai"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+              <div class="chat-bubble ai">Còn dư <span class="amount">1.250.000₫</span> so với ngân sách tháng này! Mục Ăn uống đang dùng 68%, các mục khác đều trong tầm kiểm soát. Cố thêm chút nữa là về đích rồi <i class="fa-solid fa-fist-raised" style="color:#FDE68A"></i></div>
             </div>
             <div class="chat-msg">
-              <div class="chat-avatar ai">✨</div>
+              <div class="chat-avatar ai"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
               <div class="chat-bubble ai">Tiện đây mình cũng nhắc: <span class="amount">tiền điện</span> sẽ đến hạn vào ngày 20. Đừng quên thanh toán nhé!</div>
             </div>
           </div>
@@ -1007,28 +1038,28 @@
 
           <ul class="ai-features">
             <li class="ai-feat-item">
-              <div class="ai-feat-icon">💬</div>
+              <div class="ai-feat-icon"><i class="fa-solid fa-comments"></i></div>
               <div>
                 <div class="ai-feat-title">Ghi chép qua chat tự nhiên</div>
                 <div class="ai-feat-desc">Nói hoặc gõ "mua cà phê 45k" — AI tự tạo giao dịch, không cần điền form.</div>
               </div>
             </li>
             <li class="ai-feat-item">
-              <div class="ai-feat-icon">📊</div>
+              <div class="ai-feat-icon"><i class="fa-solid fa-chart-line"></i></div>
               <div>
                 <div class="ai-feat-title">Phân tích & tư vấn cá nhân hóa</div>
                 <div class="ai-feat-desc">Nhận xét tình hình tài chính thực tế, gợi ý tiết kiệm dựa trên thói quen của riêng bạn.</div>
               </div>
             </li>
             <li class="ai-feat-item">
-              <div class="ai-feat-icon">🔮</div>
+              <div class="ai-feat-icon"><i class="fa-solid fa-hat-wizard"></i></div>
               <div>
                 <div class="ai-feat-title">Tarot Tài chính mỗi ngày</div>
                 <div class="ai-feat-desc">Rút 1 lá bài Tarot, AI giải nghĩa dựa trên dữ liệu chi tiêu thực của bạn. Tâm linh nhưng có data.</div>
               </div>
             </li>
             <li class="ai-feat-item">
-              <div class="ai-feat-icon">🚨</div>
+              <div class="ai-feat-icon"><i class="fa-solid fa-triangle-exclamation"></i></div>
               <div>
                 <div class="ai-feat-title">Chế độ Báo động đỏ</div>
                 <div class="ai-feat-desc">Vượt ngân sách? Giao diện đổi sang đỏ, AI "khịa" nhẹ để kéo bạn dừng lại kịp thời.</div>
@@ -1053,20 +1084,20 @@
 
       <div class="game-grid">
         <div class="game-card quest-card">
-          <span class="game-card-icon">⚔️</span>
+          <div class="game-card-icon"><i class="fa-solid fa-shield-halved ic-yellow"></i></div>
           <div class="game-card-title">Sảnh Thử Thách</div>
           <div class="game-card-desc">5 Quest mới mỗi tuần, được AI tạo dựa trên thói quen của riêng bạn.</div>
           <div class="quest-row" style="margin-top:16px">
             <div class="quest-item">
               <div class="quest-item-top">
-                <span class="quest-item-name">🧋 Không trà sữa 3 ngày</span>
+                <span class="quest-item-name"><i class="fa-solid fa-mug-hot"></i> Không trà sữa 3 ngày</span>
                 <span class="quest-item-pts">+80 pts</span>
               </div>
               <div class="q-bar-wrap"><div class="q-bar-fill" style="width:67%"></div></div>
             </div>
             <div class="quest-item">
               <div class="quest-item-top">
-                <span class="quest-item-name">📝 Ghi chép đủ 7 ngày</span>
+                <span class="quest-item-name"><i class="fa-solid fa-pencil"></i> Ghi chép đủ 7 ngày</span>
                 <span class="quest-item-pts">+50 pts</span>
               </div>
               <div class="q-bar-wrap"><div class="q-bar-fill" style="width:43%"></div></div>
@@ -1075,34 +1106,34 @@
         </div>
 
         <div class="game-card badge-card">
-          <span class="game-card-icon">🏅</span>
+          <div class="game-card-icon"><i class="fa-solid fa-medal ic-purple"></i></div>
           <div class="game-card-title">Hệ thống Huy hiệu</div>
           <div class="game-card-desc">Sưu tầm huy hiệu khi đạt mốc tài chính. Càng nhiều, điểm uy tín càng cao.</div>
           <div class="badge-row">
-            <span class="badge-chip">💰 Tiết kiệm thần sầu</span>
-            <span class="badge-chip">💸 Kẻ hủy diệt hóa đơn</span>
-            <span class="badge-chip">📊 Nhà phân tích nhỏ</span>
-            <span class="badge-chip">🎯 7 ngày hoàn hảo</span>
+            <span class="badge-chip"><i class="fa-solid fa-coins"></i> Tiết kiệm thần sầu</span>
+            <span class="badge-chip"><i class="fa-solid fa-bolt"></i> Kẻ hủy diệt hóa đơn</span>
+            <span class="badge-chip"><i class="fa-solid fa-chart-bar"></i> Nhà phân tích nhỏ</span>
+            <span class="badge-chip"><i class="fa-solid fa-bullseye"></i> 7 ngày hoàn hảo</span>
           </div>
         </div>
 
         <div class="game-card tarot-card">
-          <span class="game-card-icon">🔮</span>
+          <div class="game-card-icon"><i class="fa-solid fa-hat-wizard ic-sky"></i></div>
           <div class="game-card-title">LUMI Tarot — Tiên tri tài chính mỗi ngày</div>
           <div class="game-card-desc">Rút 1 lá bài từ bộ 22 Major Arcana. AI phân tích kết hợp với lịch sử chi tiêu của bạn để đưa ra lời khuyên "tâm linh nhưng có data".</div>
           <div class="tarot-grid">
             <div class="tarot-card-mini">
-              <span class="tarot-emoji">⭐</span>
+              <div class="tarot-icon"><i class="fa-solid fa-star"></i></div>
               <div class="tarot-name">The Star</div>
               <div class="tarot-desc">Ngày tốt để tiết kiệm mục tiêu lớn</div>
             </div>
             <div class="tarot-card-mini">
-              <span class="tarot-emoji">🌙</span>
+              <div class="tarot-icon"><i class="fa-solid fa-moon" style="color:#7C3AED"></i></div>
               <div class="tarot-name">The Moon</div>
               <div class="tarot-desc">Cẩn thận chi tiêu bốc đồng hôm nay</div>
             </div>
             <div class="tarot-card-mini">
-              <span class="tarot-emoji">☀️</span>
+              <div class="tarot-icon"><i class="fa-solid fa-sun" style="color:#D97706"></i></div>
               <div class="tarot-name">The Sun</div>
               <div class="tarot-desc">Tuần tốt, ngân sách đang khỏe mạnh</div>
             </div>
@@ -1110,7 +1141,7 @@
         </div>
 
         <div class="game-card mode-card">
-          <span class="game-card-icon">🎨</span>
+          <div class="game-card-icon"><i class="fa-solid fa-palette ic-pink"></i></div>
           <div class="game-card-title">Tủ đồ & Giao diện</div>
           <div class="game-card-desc">20+ theme từ Pastel đến Dark Mode. Mở khóa theme VVIP bằng cách làm thử thách mỗi tuần — không cần trả tiền.</div>
         </div>
@@ -1174,10 +1205,12 @@
       </div>
       <div class="review-grid">
         <article class="review-card">
-          <div class="review-stars">★★★★★</div>
+          <div class="review-stars">
+            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+          </div>
           <p class="review-text">"Từ hồi dùng LUMI, mình không còn giật mình cuối tháng nữa. Quest mỗi tuần khiến mình thực sự hứng thú ghi chép tiền."</p>
           <div class="review-author">
-            <div class="review-avatar" style="background:#E0F4FF">🙋‍♀️</div>
+            <div class="review-avatar" style="background:#E0F4FF; color:var(--sky-500)"><i class="fa-solid fa-user"></i></div>
             <div>
               <div class="review-name">Minh Anh, 22 tuổi</div>
               <div class="review-role">Sinh viên, TP.HCM</div>
@@ -1185,10 +1218,12 @@
           </div>
         </article>
         <article class="review-card">
-          <div class="review-stars">★★★★★</div>
+          <div class="review-stars">
+            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+          </div>
           <p class="review-text">"Chức năng chat AI hay nhất là mình cứ nhắn tin như kể chuyện, nó tự ghi hết. Không cần điền form mệt mỏi nữa."</p>
           <div class="review-author">
-            <div class="review-avatar" style="background:#FEF3C7">🧑‍💻</div>
+            <div class="review-avatar" style="background:#FEF3C7; color:#D97706"><i class="fa-solid fa-laptop-code"></i></div>
             <div>
               <div class="review-name">Quốc Huy, 24 tuổi</div>
               <div class="review-role">Fresher Developer, Hà Nội</div>
@@ -1196,10 +1231,12 @@
           </div>
         </article>
         <article class="review-card">
-          <div class="review-stars">★★★★★</div>
-          <p class="review-text">"Tarot tài chính nghe có vẻ buồn cười nhưng lại cực kỳ chính xác vì nó dựa trên chi tiêu thật của mình. Mỗi sáng rút bài xong mới yên tâm 😂"</p>
+          <div class="review-stars">
+            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+          </div>
+          <p class="review-text">"Tarot tài chính nghe có vẻ buồn cười nhưng lại cực kỳ chính xác vì nó dựa trên chi tiêu thật của mình. Mỗi sáng rút bài xong mới yên tâm!"</p>
           <div class="review-author">
-            <div class="review-avatar" style="background:#EDE9FE">🧕</div>
+            <div class="review-avatar" style="background:#EDE9FE; color:#7C3AED"><i class="fa-solid fa-user-graduate"></i></div>
             <div>
               <div class="review-name">Thu Hà, 20 tuổi</div>
               <div class="review-role">Sinh viên, Đà Nẵng</div>
@@ -1238,9 +1275,7 @@
         <a href="/" class="footer-brand-logo">LUMI</a>
         <p class="footer-brand-desc">Ứng dụng quản lý tài chính cá nhân thông minh cho Gen Z Việt Nam. AI thấu cảm, Gamification vui, dữ liệu an toàn.</p>
         <div class="footer-socials">
-          <!-- <a href="#" class="footer-social" aria-label="Facebook LUMI"><i class="fa-brands fa-facebook-f"></i></a> -->
           <a href="https://www.tiktok.com/@lumi.finance_2026?_r=1&_t=ZS-97AjDxHV2lp" class="footer-social" aria-label="TikTok LUMI"><i class="fa-brands fa-tiktok"></i></a>
-          <!-- <a href="#" class="footer-social" aria-label="Instagram LUMI"><i class="fa-brands fa-instagram"></i></a> -->
         </div>
       </div>
       <div>
@@ -1269,56 +1304,63 @@
       </div>
     </div>
     <div class="footer-bottom">
-      <span>© 2026 LUMI App. Built with ❤️ & ☕ tại Việt Nam.</span>
+      <span>© 2026 LUMI App. Built with <i class="fa-solid fa-heart" style="color:#F43F5E"></i> & <i class="fa-solid fa-mug-hot" style="color:#D97706"></i> tại Việt Nam.</span>
       <span>Dữ liệu của bạn — không bán cho bên thứ ba.</span>
     </div>
   </footer>
 
   <div id="tester-modal" class="modal-overlay">
-    <div class="modal-content">
-      <button class="modal-close" onclick="document.getElementById('tester-modal').style.display='none'" aria-label="Đóng">&times;</button>
-      
-      <h3 class="modal-title">🚀 Trở thành Tester & Nhận Huy hiệu Partner</h3>
-      <p class="modal-desc">LUMI hiện đang trong giai đoạn Closed Test. Làm theo các bước sau để tải app và nhận ngay <strong>Huy hiệu Partner (Tích xanh)</strong> độc quyền cho những người tiên phong!</p>
-      
-      <div class="step-list">
-        <div class="step-item">
-          <span class="step-num">1</span>
-          <div>
-            <strong>Tham gia Google Group</strong>
-            <p>Bắt buộc tham gia nhóm <a href="https://groups.google.com/g/lumiapp-testers" target="_blank">lumiapp-testers</a> bằng tài khoản Google của bạn để được cấp quyền tải app.</p>
-          </div>
-        </div>
-        
-        <div class="step-item">
-          <span class="step-num">2</span>
-          <div>
-            <strong>Bật VPN (Nếu bạn ở Việt Nam)</strong>
-            <p>Do chính sách thử nghiệm của Play Store, hãy bật VPN (chọn server nước ngoài bất kỳ) để không bị lỗi không tìm thấy app nhé.</p>
-          </div>
-        </div>
-        
-        <div class="step-item">
-          <span class="step-num">3</span>
-          <div>
-            <strong>Tải ứng dụng trên Play Store</strong>
-            <p>Sau khi xong bước 1 & 2, ấn vào <a href="https://play.google.com/store/apps/details?id=com.phucvohoai.lumi_app" target="_blank">Link Google Play này</a> để cài đặt LUMI.</p>
-          </div>
-        </div>
-        
-        <div class="step-item">
-          <span class="step-num">4</span>
-          <div>
-            <strong>Đăng nhập nhận Huy hiệu</strong>
-            <p>Mở LUMI lên và <em>đăng nhập bằng đúng tài khoản Google đã dùng ở Bước 1</em> để hệ thống ghi nhận và trao huy hiệu Partner!</p>
-          </div>
+  <div class="modal-content">
+    <button class="modal-close" onclick="document.getElementById('tester-modal').style.display='none'" aria-label="Đóng">&times;</button>
+    
+    <h3 class="modal-title">Trở thành Tester & Nhận Huy hiệu Partner</h3>
+    <p class="modal-desc">LUMI hiện đang trong giai đoạn Closed Test. Làm theo các bước sau để tải app và nhận ngay <strong>Huy hiệu Partner</strong> độc quyền cho những người tiên phong!</p>
+    
+    <div class="step-list">
+      <div class="step-item">
+        <span class="step-num">1</span>
+        <div>
+          <strong>Bật VPN (Bắt buộc nếu ở Việt Nam)</strong>
+          <p>Do chính sách thử nghiệm của Google Play, hãy bật VPN (chọn server nước ngoài bất kỳ) trước khi thực hiện các bước tiếp theo để không bị lỗi nhé.</p>
         </div>
       </div>
 
-      <a href="https://play.google.com/store/apps/details?id=com.phucvohoai.lumi_app" target="_blank" class="btn-primary" style="width: 100%; justify-content: center;">
-        <i class="fa-brands fa-google-play"></i> Tải ngay trên Google Play
-      </a>
+      <div class="step-item">
+        <span class="step-num">2</span>
+        <div>
+          <strong>Tham gia Google Group</strong>
+          <p>Nhấn vào nút bên dưới để tham gia nhóm Tester (bắt buộc dùng tài khoản Google của bạn để được cấp quyền).</p>
+          <a href="https://groups.google.com/g/lumiapp-testers" target="_blank" class="btn-step" style="display: inline-flex; align-items: center; justify-content: center; margin-top: 8px; padding: 8px 16px; background-color: #f1f3f4; color: #1a73e8; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 14px; border: 1px solid #dadce0;">
+            Tham gia Group ngay
+          </a>
+        </div>
+      </div>
+      
+      <div class="step-item">
+        <span class="step-num">3</span>
+        <div>
+          <strong>Tải ứng dụng LUMI</strong>
+          <p>Sau khi đã vào group thành công, hãy nhấn vào nút dưới đây để chuyển hướng đến Play Store và cài đặt app.</p>
+          <a href="https://play.google.com/store/apps/details?id=com.phucvohoai.lumi_app" target="_blank" class="btn-step" style="display: inline-flex; align-items: center; justify-content: center; margin-top: 8px; padding: 8px 16px; background-color: #f1f3f4; color: #1a73e8; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 14px; border: 1px solid #dadce0;">
+            Đến trang tải App
+          </a>
+        </div>
+      </div>
+      
+      <div class="step-item">
+        <span class="step-num">4</span>
+        <div>
+          <strong>Đăng nhập nhận Huy hiệu</strong>
+          <p>Mở LUMI lên và <em>đăng nhập bằng đúng tài khoản Google đã dùng ở Bước 2</em> để hệ thống tự động ghi nhận và trao huy hiệu Partner!</p>
+        </div>
+      </div>
     </div>
+
+    <a href="https://play.google.com/store/apps/details?id=com.phucvohoai.lumi_app" target="_blank" class="btn-primary" style="display: flex; width: 100%; justify-content: center; margin-top: 16px; align-items: center;">
+      <i class="fa-brands fa-google-play" style="margin-right: 8px;"></i> Tải ngay trên Google Play
+    </a>
   </div>
+</div>
+  
 </body>
 </html>
