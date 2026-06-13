@@ -693,6 +693,46 @@
       .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
       #ai { margin: 0 12px; }
     }
+    /* ══════════════════════════════════════════
+       TESTER MODAL
+    ══════════════════════════════════════════ */
+    .modal-overlay {
+      position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(15, 41, 66, 0.6); backdrop-filter: blur(6px);
+      z-index: 1000; display: none; align-items: center; justify-content: center;
+      padding: 20px; opacity: 0; animation: fadeIn 0.3s forwards;
+    }
+    .modal-content {
+      background: white; border-radius: var(--r-xl); padding: 40px;
+      max-width: 520px; width: 100%; position: relative;
+      box-shadow: var(--shadow-md); transform: translateY(20px);
+      animation: slideUp 0.3s forwards;
+    }
+    @keyframes fadeIn { to { opacity: 1; } }
+    @keyframes slideUp { to { transform: translateY(0); } }
+    
+    .modal-close {
+      position: absolute; top: 20px; right: 24px;
+      background: transparent; border: none; font-size: 1.8rem;
+      color: var(--muted); cursor: pointer; transition: color 0.2s;
+    }
+    .modal-close:hover { color: var(--sky-600); }
+    .modal-title { font-size: 1.4rem; font-weight: 800; color: var(--navy); margin-bottom: 8px; line-height: 1.3; }
+    .modal-desc { font-size: 0.9rem; color: var(--muted); line-height: 1.6; margin-bottom: 24px; }
+    .modal-desc strong { color: var(--sky-600); }
+    
+    .step-list { display: flex; flex-direction: column; gap: 18px; margin-bottom: 24px; }
+    .step-item { display: flex; gap: 14px; align-items: flex-start; }
+    .step-num {
+      width: 28px; height: 28px; border-radius: 50%; background: var(--sky-100);
+      color: var(--sky-600); font-weight: 800; font-size: 0.85rem;
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .step-item strong { font-size: 0.95rem; color: var(--navy); display: block; margin-bottom: 4px; }
+    .step-item p { font-size: 0.85rem; color: var(--muted); line-height: 1.5; }
+    .step-item a { color: var(--sky-500); font-weight: 700; text-decoration: none; }
+    .step-item a:hover { text-decoration: underline; }
   </style>
 </head>
 
@@ -739,14 +779,10 @@
         </p>
 
         <div class="hero-btns">
-          <a href="#" class="btn-primary" aria-label="Tải LUMI trên Google Play">
+          <button onclick="document.getElementById('tester-modal').style.display='flex'" class="btn-primary" aria-label="Hướng dẫn cài đặt LUMI Tester">
             <i class="fa-brands fa-google-play"></i>
             Google Play
-          </a>
-          <a href="#" class="btn-secondary" aria-label="Tải file APK">
-            <i class="fa-solid fa-cloud-arrow-down"></i>
-            Tải file APK
-          </a>
+          </button>
         </div>
 
         <div class="hero-stats" role="region" aria-label="Thống kê LUMI">
@@ -1164,14 +1200,11 @@
       </div>
       <h2 class="cta-title" id="cta-heading">Bắt đầu hành trình<br/>tài chính của bạn hôm nay</h2>
       <p class="cta-sub">Không cần thẻ tín dụng. Không có quảng cáo. Chỉ cần tải về và bắt đầu — trong 60 giây.</p>
-      <div class="cta-btns">
-        <a href="#" class="btn-cta-primary" aria-label="Tải LUMI trên Google Play">
-          <i class="fa-brands fa-google-play"></i> Google Play
-        </a>
-        <a href="#" class="btn-cta-secondary" aria-label="Tải file APK trực tiếp">
-          <i class="fa-solid fa-cloud-arrow-down"></i> Tải APK
-        </a>
-      </div>
+        <div class="cta-btns">
+            <button onclick="document.getElementById('tester-modal').style.display='flex'" class="btn-cta-primary" style="border: none; cursor: pointer;" aria-label="Hướng dẫn cài đặt LUMI Tester">
+            <i class="fa-brands fa-google-play"></i> Google Play
+            </button>
+        </div>
     </div>
   </section>
 
@@ -1220,5 +1253,51 @@
     </div>
   </footer>
 
+  <div id="tester-modal" class="modal-overlay">
+    <div class="modal-content">
+      <button class="modal-close" onclick="document.getElementById('tester-modal').style.display='none'" aria-label="Đóng">&times;</button>
+      
+      <h3 class="modal-title">🚀 Trở thành Tester & Nhận Huy hiệu Partner</h3>
+      <p class="modal-desc">LUMI hiện đang trong giai đoạn Closed Test. Làm theo các bước sau để tải app và nhận ngay <strong>Huy hiệu Partner (Tích xanh)</strong> độc quyền cho những người tiên phong!</p>
+      
+      <div class="step-list">
+        <div class="step-item">
+          <span class="step-num">1</span>
+          <div>
+            <strong>Tham gia Google Group</strong>
+            <p>Bắt buộc tham gia nhóm <a href="https://groups.google.com/g/lumiapp-testers" target="_blank">lumiapp-testers</a> bằng tài khoản Google của bạn để được cấp quyền tải app.</p>
+          </div>
+        </div>
+        
+        <div class="step-item">
+          <span class="step-num">2</span>
+          <div>
+            <strong>Bật VPN (Nếu bạn ở Việt Nam)</strong>
+            <p>Do chính sách thử nghiệm của Play Store, hãy bật VPN (chọn server nước ngoài bất kỳ) để không bị lỗi không tìm thấy app nhé.</p>
+          </div>
+        </div>
+        
+        <div class="step-item">
+          <span class="step-num">3</span>
+          <div>
+            <strong>Tải ứng dụng trên Play Store</strong>
+            <p>Sau khi xong bước 1 & 2, ấn vào <a href="https://play.google.com/store/apps/details?id=com.phucvohoai.lumi_app" target="_blank">Link Google Play này</a> để cài đặt LUMI.</p>
+          </div>
+        </div>
+        
+        <div class="step-item">
+          <span class="step-num">4</span>
+          <div>
+            <strong>Đăng nhập nhận Huy hiệu</strong>
+            <p>Mở LUMI lên và <em>đăng nhập bằng đúng tài khoản Google đã dùng ở Bước 1</em> để hệ thống ghi nhận và trao huy hiệu Partner!</p>
+          </div>
+        </div>
+      </div>
+
+      <a href="https://play.google.com/store/apps/details?id=com.phucvohoai.lumi_app" target="_blank" class="btn-primary" style="width: 100%; justify-content: center;">
+        <i class="fa-brands fa-google-play"></i> Tải ngay trên Google Play
+      </a>
+    </div>
+  </div>
 </body>
 </html>
