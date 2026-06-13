@@ -694,6 +694,26 @@
       #ai { margin: 0 12px; }
     }
     /* ══════════════════════════════════════════
+       CUSTOM 50/30/20 CARD LAYOUT
+    ══════════════════════════════════════════ */
+    .feat-split {
+      display: flex; gap: 40px; align-items: center;
+    }
+    .feat-split-text { flex: 1; }
+    .feat-split-visual {
+      flex-shrink: 0; display: flex; flex-direction: column; gap: 8px; min-width: 180px;
+    }
+
+    /* Thêm vào ngay trong khối @media (max-width: 640px) có sẵn của ông */
+    @media (max-width: 640px) {
+      .feat-split {
+        flex-direction: column; gap: 24px; align-items: flex-start;
+      }
+      .feat-split-visual {
+        min-width: 100%; width: 100%;
+      }
+    }
+    /* ══════════════════════════════════════════
        TESTER MODAL
     ══════════════════════════════════════════ */
     .modal-overlay {
@@ -870,8 +890,8 @@
         </div>
 
         <div class="feat-card wide" style="--icon-glow:#EDE9FE">
-          <div style="display:flex; gap:40px; align-items:center;">
-            <div style="flex:1">
+          <div class="feat-split">
+            <div class="feat-split-text">
               <div class="feat-icon" style="background:#EDE9FE; color:#7C3AED"><i class="fa-solid fa-chart-pie"></i></div>
               <div class="feat-title">Phân tích 50/30/20</div>
               <div class="feat-desc">AI tự động phân loại chi tiêu vào 3 nhóm: Thiết yếu, Sở thích và Tích lũy. Heatmap giao dịch trực quan như GitHub — nhìn là hiểu ngay sức khỏe tài chính của mình.</div>
@@ -881,7 +901,8 @@
                 <span class="feat-tag">So sánh Thu–Chi</span>
               </div>
             </div>
-            <div style="flex-shrink:0; display:flex; flex-direction:column; gap:8px; min-width:180px">
+            
+            <div class="feat-split-visual">
               <div style="background:var(--sky-50); border-radius:16px; padding:14px; border:1px solid var(--sky-100)">
                 <div style="font-size:.7rem; font-weight:700; color:var(--muted); margin-bottom:6px">Thiết yếu (50%)</div>
                 <div style="height:8px; background:var(--sky-100); border-radius:100px; overflow:hidden"><div style="height:100%; width:72%; background:var(--sky-400); border-radius:100px"></div></div>
